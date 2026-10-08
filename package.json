@@ -1,0 +1,10 @@
+{
+  "name": "funnelslabs-contenido",
+  "private": true,
+  "scripts": {
+    "render": "node .claude/skills/carruseles-funnels-labs/scripts/render.cjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
