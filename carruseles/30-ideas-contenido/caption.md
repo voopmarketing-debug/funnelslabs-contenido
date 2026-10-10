@@ -1,5 +1,5 @@
-30 ideas para que no vuelvas a quedarte en blanco.
+¿Sin ideas para publicar esta semana? Aquí tienes 30.
 
-Guárdalo y comenta “SISTEMA” si quieres conectarlas con un sistema de ventas para tu negocio.
+Guárdalo. Y si quieres que tus publicaciones terminen en ventas, comenta “SISTEMA”.
 
 #emprendedoreslatam #funnelslabs
