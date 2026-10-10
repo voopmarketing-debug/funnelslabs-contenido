@@ -7,11 +7,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fff; --surface:#f6f6f2; --border:#e2e2db; --ink:#0a0a0a; --muted:#3d3d35; --faint:#5c5c53; --lime:#b5ff2b; --lilac:#c9a9ff; --violet:#7c3aed; }
+  :root { --bg:#0a0a0a; --surface:#1e1e1e; --border:#1f1f1f; --ink:#fff; --muted:#c8c8c0; --faint:#9a9a92; --lime:#b5ff2b; --lilac:#c9a9ff; --violet:#7c3aed; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:#d9d9d2; font-family:"Montserrat",Arial,sans-serif; color:var(--ink); display:flex; flex-direction:column; align-items:center; gap:40px; padding:40px 0; }
+  body { background:#333; font-family:"Montserrat",Arial,sans-serif; color:var(--ink); display:flex; flex-direction:column; align-items:center; gap:40px; padding:40px 0; }
   .slide { position:relative; width:1080px; height:1350px; background:var(--bg); overflow:hidden; padding:90px 80px 70px; display:flex; flex-direction:column; }
-  .slide::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  .slide::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.9;
     background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size:54px 54px;
     -webkit-mask-image: radial-gradient(70% 60% at 50% 50%, transparent 40%, #000); mask-image: radial-gradient(70% 60% at 50% 50%, transparent 40%, #000); }
   .slide > * { position:relative; }
@@ -19,31 +19,31 @@
   .brand { display:flex; gap:12px; align-items:center; } .brand i { width:22px; height:22px; border-radius:6px; background:var(--lime); }
   .count { color:var(--faint); font-weight:600; letter-spacing:.08em; }
   .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:24px; color:var(--faint); }
-  .arrow { width:80px; height:80px; border-radius:99px; background:var(--ink); color:var(--lime); display:flex; align-items:center; justify-content:center; font-size:38px; font-weight:800; }
+  .arrow { width:80px; height:80px; border-radius:99px; background:var(--lime); color:#0a0a0a; display:flex; align-items:center; justify-content:center; font-size:38px; font-weight:800; }
   .x { font-weight:900; letter-spacing:-0.045em; line-height:.98; }
-  .hl { background:var(--lime); padding:0 .1em .02em; border-radius:.1em; line-height:1.12; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+  .hl { color:#0a0a0a; background:var(--lime); padding:0 .1em .02em; border-radius:.1em; line-height:1.12; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
   .it { font-style:italic; }
-  .k { font-weight:800; font-size:22px; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); }
+  .k { font-weight:800; font-size:22px; letter-spacing:.14em; text-transform:uppercase; color:var(--lilac); }
   p.lead { font-weight:600; font-size:36px; line-height:1.3; color:var(--muted); }
 
   /* escalera */
   .stairs { position:absolute; left:80px; right:80px; bottom:190px; height:700px; }
-  .step { position:absolute; bottom:0; background:var(--ink); border-radius:26px 26px 0 0; }
+  .step { position:absolute; bottom:0; background:linear-gradient(#232323,#141414); border:2px solid #2e2e2e; border-bottom:0; border-radius:26px 26px 0 0; }
   .step .lab { position:absolute; left:0; right:0; text-align:center; }
   .badge { position:absolute; left:50%; transform:translateX(-50%); width:120px; height:120px; border-radius:99px; background:var(--lime); display:flex; align-items:center; justify-content:center;
-           box-shadow:0 0 0 10px #fff, 0 20px 40px -12px rgba(10,10,10,.35); }
+           box-shadow:0 0 0 10px #0a0a0a, 0 0 50px -6px rgba(181,255,43,.45); }
   .badge svg { width:60px; height:60px; }
   .stepname { font-weight:900; font-size:30px; letter-spacing:-0.02em; color:var(--lime); text-transform:uppercase; }
   .stepdesc { font-weight:600; font-size:24px; color:#d8d8d0; margin-top:4px; line-height:1.25; }
   .trail { position:absolute; inset:0; overflow:visible; }
 
   /* preguntas */
-  .q { display:flex; align-items:center; gap:24px; background:#fff; border:2px solid var(--border); border-radius:28px; padding:22px 26px; box-shadow:0 18px 40px -22px rgba(10,10,10,.25); position:relative; }
-  .q .num { position:absolute; left:-18px; top:-18px; width:52px; height:52px; border-radius:99px; background:var(--ink); color:var(--lime); font-weight:900; font-size:26px; display:flex; align-items:center; justify-content:center; }
-  .q .ic { flex:none; width:76px; height:76px; border-radius:22px; background:var(--surface); display:flex; align-items:center; justify-content:center; }
+  .q { display:flex; align-items:center; gap:24px; background:#151515; border:2px solid #2e2e2e; border-radius:28px; padding:22px 26px; position:relative; }
+  .q .num { position:absolute; left:-18px; top:-18px; width:52px; height:52px; border-radius:99px; background:var(--lime); color:#0a0a0a; font-weight:900; font-size:26px; display:flex; align-items:center; justify-content:center; }
+  .q .ic { flex:none; width:76px; height:76px; border-radius:22px; background:var(--lime); display:flex; align-items:center; justify-content:center; }
   .q .ic svg { width:50px; height:50px; }
   .q span { min-width:0; font-weight:700; font-size:27px; line-height:1.15; letter-spacing:-0.02em; }
-  .q b { font-weight:900; background:var(--lime); padding:0 6px; border-radius:6px; }
+  .q b { font-weight:900; color:#0a0a0a; background:var(--lime); padding:0 6px; border-radius:6px; }
 </style>
 </head>
 <body>
@@ -67,7 +67,7 @@
     <p class="lead" style="margin-top:12px">Eso es otro juego.</p>
   </div>
   <div class="stairs">
-    <svg class="trail" viewBox="0 0 920 760" preserveAspectRatio="none"><path d="M150 560 C 300 520, 330 400, 455 360 S 650 160, 770 120" fill="none" stroke="#7c3aed" stroke-width="7" stroke-dasharray="2 16" stroke-linecap="round"/></svg>
+    <svg class="trail" viewBox="0 0 920 760" preserveAspectRatio="none"><path d="M150 560 C 300 520, 330 400, 455 360 S 650 160, 770 120" fill="none" stroke="#c9a9ff" stroke-width="7" stroke-dasharray="2 16" stroke-linecap="round"/></svg>
     <div class="step" style="left:0;width:290px;height:170px">
       <div class="badge" style="top:-70px"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#0a0a0a"/></svg></div>
       <div class="lab" style="top:-330px;color:var(--ink)"><div class="x" style="font-size:54px">Conseguir</div><div class="x it" style="font-size:64px;margin-top:14px"><span class="hl">vistas</span></div><div style="font-weight:600;font-size:30px;margin-top:6px">es fácil.</div></div>
@@ -90,11 +90,11 @@
     <div class="x" style="font-size:80px">Porque tu audiencia</div>
     <div class="x it" style="font-size:80px;margin-top:16px"><span class="hl">no compra contenido.</span></div>
     <p class="lead" style="margin-top:26px;font-size:32px">Compra cuando tu contenido la hace pensar:</p>
-    <div class="x" style="display:inline-block;margin-top:18px;font-size:66px;border:5px solid var(--ink);border-radius:24px;padding:10px 40px 18px;box-shadow:8px 8px 0 var(--lime)">“Necesito esto.”</div>
+    <div class="x" style="display:inline-block;margin-top:18px;font-size:66px;border:5px solid var(--ink);border-radius:24px;padding:10px 40px 18px;box-shadow:8px 8px 0 var(--lime);border-color:#fff">“Necesito esto.”</div>
     <div style="font-weight:800;font-size:32px;margin-top:34px;letter-spacing:-0.02em">Tu contenido tiene que llevar a las personas de:</div>
   </div>
   <div class="stairs" style="height:470px;bottom:190px">
-    <svg class="trail" viewBox="0 0 920 520" preserveAspectRatio="none"><path d="M110 330 L 345 250 L 575 170 L 810 70" fill="none" stroke="#7c3aed" stroke-width="7" stroke-dasharray="2 16" stroke-linecap="round"/></svg>
+    <svg class="trail" viewBox="0 0 920 520" preserveAspectRatio="none"><path d="M110 330 L 345 250 L 575 170 L 810 70" fill="none" stroke="#c9a9ff" stroke-width="7" stroke-dasharray="2 16" stroke-linecap="round"/></svg>
     <div class="step" style="left:0;width:215px;height:150px"><div class="badge" style="top:-62px;width:104px;height:104px"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.2"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3" fill="#0a0a0a"/></svg></div><div class="lab" style="top:58px"><div class="stepname">Atención</div><div class="stepdesc">Te notan.</div></div></div>
     <div class="step" style="left:235px;width:215px;height:230px"><div class="badge" style="top:-62px;width:104px;height:104px"><svg viewBox="0 0 24 24" fill="#0a0a0a"><path d="M12 20.5s-8-4.8-8-10.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 8 2.5c0 5.8-8 10.6-8 10.6z"/></svg></div><div class="lab" style="top:58px"><div class="stepname">Interés</div><div class="stepdesc">Lo ven<br>relevante.</div></div></div>
     <div class="step" style="left:470px;width:215px;height:310px"><div class="badge" style="top:-62px;width:104px;height:104px"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.2" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8-7.5 9.5-4.3-1.5-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round"/></svg></div><div class="lab" style="top:58px"><div class="stepname">Confianza</div><div class="stepdesc">Empiezan a<br>creer en ti.</div></div></div>
@@ -128,7 +128,7 @@
   <div style="margin:auto 0">
     <div class="x" style="font-size:70px;line-height:1.05">Si tu objetivo no es más “fama”, sino <span class="hl">armar un negocio</span> con tus redes…</div>
     <div class="x" style="font-size:64px;margin-top:70px">Comenta</div>
-    <div class="x" style="display:inline-block;font-size:150px;margin-top:14px;background:var(--ink);color:var(--lime);border-radius:30px;padding:10px 44px 26px">4 PASOS</div>
+    <div class="x" style="display:inline-block;font-size:150px;margin-top:14px;background:var(--lime);color:#0a0a0a;border-radius:30px;padding:10px 44px 26px">4 PASOS</div>
     <p class="lead" style="margin-top:50px">y te envío los 4 pasos para convertir<br>tus seguidores en clientes.</p>
   </div>
   <div class="foot" style="justify-content:center"><span>@funnelslabs</span></div>
