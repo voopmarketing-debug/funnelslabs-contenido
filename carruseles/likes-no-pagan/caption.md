@@ -1,9 +1,5 @@
-Los likes se sienten bien. Pero no pagan la nómina. 👀
+Seguidores no es lo mismo que clientes. 👀
 
-Puedes tener miles de seguidores y aun así no vender, porque tu contenido entretiene, pero no lleva a nadie al siguiente paso.
+👉 Comenta “SISTEMA” y te mostramos cómo vender con tus redes.
 
-Desliza y revisa en qué escalón se queda tu audiencia.
-
-👉 Comenta “SISTEMA” y te mostramos cómo se vería en tu negocio.
-
-#emprendedoreslatam #marketingdigital #funnelslabs
+#emprendedoreslatam #funnelslabs
