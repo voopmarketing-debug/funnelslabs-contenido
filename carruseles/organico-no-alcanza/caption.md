@@ -1,5 +1,5 @@
-Publicar todos los días ya no garantiza clientes.
+Subir posts ya no te garantiza clientes.
 
-Te dejo 3 cosas que sí están funcionando. Comenta “SISTEMA” y te mostramos cómo aplicarlas en tu negocio.
+Esto es lo que sí funciona hoy. Comenta “SISTEMA” y te contamos cómo aplicarlo en tu negocio.
 
 #emprendedoreslatam #funnelslabs
