@@ -4,6 +4,6 @@ Puedes tener miles de seguidores y aun así no vender, porque tu contenido entre
 
 Desliza y revisa en qué escalón se queda tu audiencia.
 
-👉 Comenta “SISTEMA” y te mostramos cómo lo construimos para negocios como el tuyo.
+👉 Comenta “SISTEMA” y te mostramos cómo se vería en tu negocio.
 
 #emprendedoreslatam #marketingdigital #funnelslabs
