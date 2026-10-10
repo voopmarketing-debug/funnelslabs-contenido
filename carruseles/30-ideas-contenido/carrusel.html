@@ -25,6 +25,15 @@ body{background:#d9d9d2;font-family:"Montserrat",Arial,sans-serif;color:var(--in
 .head p{font-size:24px;font-weight:500;color:var(--muted);margin-top:16px}
 .grid{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;margin-top:8px}
 .it{display:flex;gap:18px;padding:27px 0;border-bottom:1px solid var(--line)}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid var(--ink)}
+.flow div{position:relative;padding:28px 18px 0 0;display:flex;flex-direction:column}
+.flow small{font-size:18px;font-weight:700;letter-spacing:.1em;color:var(--faint)}
+.flow b{font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:18px}
+.flow span{font-size:21px;color:var(--muted);margin-top:6px}
+.flow div.on b{background:linear-gradient(transparent 58%, var(--lime) 58%, var(--lime) 92%, transparent 92%);align-self:flex-start}
+.flow div::before{content:"";position:absolute;left:0;top:-7px;width:13px;height:13px;border-radius:99px;background:#fff;border:2px solid var(--ink)}
+.flow div.on::before{background:var(--lime);border-color:var(--lime);box-shadow:0 0 0 5px rgba(181,255,43,.3)}
 .it .k{flex:none;width:44px;font-size:18px;font-weight:700;letter-spacing:.06em;color:var(--faint);padding-top:5px;font-variant-numeric:tabular-nums}
 .it b{display:block;font-size:26px;font-weight:700;line-height:1.18;letter-spacing:-0.02em}
 .it span{display:block;font-size:21px;font-weight:400;line-height:1.35;color:var(--muted);margin-top:6px}
@@ -58,12 +67,28 @@ body{background:#d9d9d2;font-family:"Montserrat",Arial,sans-serif;color:var(--in
   <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<span></span></span></div>
 </section>
 <section class="slide">
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>El paso que falta</div></div>
+  <div style="margin-top:auto">
+    <div class="heavy" style="font-size:100px;line-height:.98">Una idea sola<br><span class="light">no vende.</span></div>
+    <div class="heavy" style="font-size:100px;line-height:.98;margin-top:22px"><span class="mark">Conectada, sí.</span></div>
+  </div>
+  <div class="flow">
+    <div><small>01</small><b>Idea</b><span>Lo que publicas</span></div>
+    <div><small>02</small><b>Interés</b><span>Te escriben</span></div>
+    <div><small>03</small><b>Conversación</b><span>WhatsApp responde</span></div>
+    <div class="on"><small>04</small><b>Venta</b><span>Agenda o paga</span></div>
+  </div>
+  <p style="margin-top:46px;font-size:28px;font-weight:500;line-height:1.45;color:var(--muted);max-width:860px;margin-bottom:auto">Cada publicación debería llevar a alguien al siguiente paso. Si se queda en un like, se pierde.</p>
+  <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<span></span></span></div>
+</section>
+<section class="slide">
   <div class="top"><div class="b"><i></i>Funnels Labs</div><div>Antes de irte</div></div>
   <div style="margin:auto 0">
-    <div class="heavy" style="font-size:104px;line-height:.98">Las ideas<br><span class="light">ya las tienes.</span></div>
-    <div class="heavy" style="font-size:104px;line-height:.98;margin-top:30px">Lo difícil es<br><span class="mark">que vendan.</span></div>
-    <p style="margin-top:44px;font-size:30px;font-weight:500;line-height:1.4;color:var(--muted);max-width:840px">Guarda este post para tu próxima semana de contenido. Y si quieres que cada publicación termine en una conversación por WhatsApp, comenta:</p>
-    <div style="display:inline-flex;align-items:center;gap:22px;margin-top:34px;border:2px solid var(--ink);border-radius:99px;padding:18px 40px 20px">
+    <div class="heavy" style="font-size:88px;line-height:1">¿Quieres conectar<br>estas ideas con un</div>
+    <div class="heavy" style="font-size:88px;line-height:1;margin-top:14px"><span class="mark">sistema de ventas</span></div>
+    <div style="font-size:88px;line-height:1;margin-top:14px" class="light">diseñado para<br>tu negocio?</div>
+    <p style="margin-top:50px;font-size:30px;font-weight:500;color:var(--muted)">Comenta y te mostramos cómo se vería:</p>
+    <div style="display:inline-flex;align-items:center;gap:22px;margin-top:26px;border:2px solid var(--ink);border-radius:99px;padding:18px 40px 20px">
       <span style="width:16px;height:16px;border-radius:99px;background:var(--lime);box-shadow:0 0 0 6px rgba(181,255,43,.3)"></span>
       <span class="heavy" style="font-size:54px">SISTEMA</span></div>
   </div>
