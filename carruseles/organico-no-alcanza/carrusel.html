@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>El orgánico ya no alcanza — Funnels Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--muted:#55554d;--faint:#9a9a92;--line:#e6e6df;--lime:#b5ff2b;--lilac:#c9a9ff;--paper:#fbfbf8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9d9d2;font-family:"Montserrat",Arial,sans-serif;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}
+.slide{position:relative;width:1080px;height:1350px;background:var(--paper);overflow:hidden;padding:80px 84px 64px;display:flex;flex-direction:column}
+.slide::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#d6d6cf 1.4px,transparent 1.6px);background-size:30px 30px;opacity:.7;pointer-events:none}
+.blob{position:absolute;border-radius:50%;pointer-events:none}
+.slide>*:not(.blob){position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:19px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.top .b{display:flex;align-items:center;gap:12px;color:var(--ink)} .top .b i{width:12px;height:12px;border-radius:99px;background:var(--lime);box-shadow:0 0 0 4px rgba(181,255,43,.3)}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:19px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.go{display:flex;align-items:center;gap:14px;color:var(--ink)} .go s{width:56px;height:2px;background:var(--ink);position:relative;text-decoration:none} .go s::after{content:"";position:absolute;right:0;top:-5px;width:10px;height:10px;border-top:2px solid var(--ink);border-right:2px solid var(--ink);transform:rotate(45deg)}
+.h{font-weight:800;letter-spacing:-0.045em;line-height:1}
+.l{font-weight:300;letter-spacing:-0.035em}
+.mark{background:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%);padding:0 .05em}
+.tag{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:#fff;border:1.5px solid var(--ink);border-radius:99px;padding:10px 22px;font-size:19px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.tag i{width:10px;height:10px;border-radius:99px;background:var(--lime)}
+.num{display:inline-flex;align-self:flex-start;font-size:20px;font-weight:700;letter-spacing:.12em;background:var(--ink);color:var(--lime);border-radius:10px;padding:8px 14px}
+.photo{border-radius:34px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(10,10,10,.45)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.chip{position:absolute;display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;padding:14px 20px 14px 14px;box-shadow:0 24px 50px -24px rgba(10,10,10,.35);font-size:22px;font-weight:700}
+.p{font-size:28px;font-weight:500;line-height:1.42;color:var(--muted)}
+.bul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.bul li{display:flex;gap:16px;font-size:26px;font-weight:600;line-height:1.3}
+.bul li::before{content:"";flex:none;width:10px;height:10px;border-radius:99px;background:var(--ink);margin-top:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:0 30px 60px -36px rgba(10,10,10,.35)}
+</style>
+</head>
+<body>
+
+<!-- 1 PORTADA -->
+<section class="slide">
+  <div class="blob" style="width:760px;height:760px;right:-260px;top:-240px;background:radial-gradient(circle,rgba(181,255,43,.55),rgba(181,255,43,0) 68%)"></div>
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>Meta · 2026</div></div>
+  <div style="display:flex;gap:40px;margin-top:56px;align-items:stretch">
+    <div class="photo" style="width:560px;height:640px"><img src="img/zuck-escritorio.jpg" style="object-position:62% 30%"></div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px">
+      <div class="card" style="padding:26px;display:flex;justify-content:center">
+        <svg width="220" height="80" viewBox="0 0 220 80"><defs><linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="#0064e0"/><stop offset="1" stop-color="#0082fb"/></linearGradient></defs>
+          <path d="M14 58c0-20 12-40 26-40 12 0 20 12 28 25s16 25 26 25c9 0 13-8 13-17 0-18-11-33-23-33-10 0-17 11-25 24" fill="none" stroke="url(#mg)" stroke-width="10" stroke-linecap="round"/>
+          <text x="118" y="54" font-family="Montserrat" font-weight="600" font-size="30" fill="#1c2b33">Meta</text></svg>
+      </div>
+      <div class="card" style="padding:26px;display:flex;justify-content:center;align-items:center;gap:18px">
+        <svg width="70" height="70" viewBox="0 0 70 70"><defs><radialGradient id="ig" cx=".3" cy="1.05" r="1.2"><stop offset="0" stop-color="#fdf497"/><stop offset=".1" stop-color="#fdf497"/><stop offset=".5" stop-color="#fd5949"/><stop offset=".68" stop-color="#d6249f"/><stop offset="1" stop-color="#285aeb"/></radialGradient></defs>
+          <rect width="70" height="70" rx="18" fill="url(#ig)"/><rect x="15" y="15" width="40" height="40" rx="12" fill="none" stroke="#fff" stroke-width="5"/><circle cx="35" cy="35" r="9.5" fill="none" stroke="#fff" stroke-width="5"/><circle cx="48" cy="22" r="3" fill="#fff"/></svg>
+        <span style="font-size:26px;font-weight:600">Instagram</span>
+      </div>
+    </div>
+  </div>
+  <div class="tag" style="margin-top:48px"><i></i>Lo que está cambiando</div>
+  <div class="h" style="font-size:84px;margin-top:22px">Publicar ya no<br>alcanza <span class="l">para</span> <span class="mark">vender.</span></div>
+  <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+<!-- 2 CONTEXTO -->
+<section class="slide">
+  <div class="blob" style="width:640px;height:640px;left:-260px;bottom:-200px;background:radial-gradient(circle,rgba(201,169,255,.6),rgba(201,169,255,0) 68%)"></div>
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>Contexto</div></div>
+  <div class="h" style="font-size:68px;margin-top:60px">Hoy tu feed lo decide<br>la <span class="mark">IA de Meta</span>,<br><span class="l">no tus seguidores.</span></div>
+  <p class="p" style="margin-top:28px;max-width:860px">Cada vez más de lo que ves en Instagram y Facebook es contenido recomendado, no de las cuentas que sigues. Publicar y esperar ya no es una estrategia.</p>
+  <div style="position:relative;margin-top:44px;align-self:center">
+    <div class="photo" style="width:620px;height:620px"><img src="img/zuck-retrato.jpg" style="object-position:50% 30%"></div>
+    <div class="chip" style="left:-120px;top:70px"><span style="width:44px;height:44px;border-radius:12px;background:var(--lime);display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round"><path d="M4 17l5-5 4 4 7-8"/></svg></span>Más contenido recomendado</div>
+    <div class="chip" style="right:-110px;bottom:90px"><span style="width:44px;height:44px;border-radius:12px;background:#f1f1ec;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round"><path d="M4 7l5 5 4-4 7 8"/></svg></span>Menos alcance orgánico</div>
+  </div>
+  <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+<!-- 3 PREGUNTA -->
+<section class="slide" style="justify-content:center">
+  <div class="blob" style="width:900px;height:900px;left:90px;top:220px;background:radial-gradient(circle,rgba(181,255,43,.45),rgba(181,255,43,0) 62%)"></div>
+  <div class="top" style="position:absolute;left:84px;right:84px;top:80px"><div class="b"><i></i>Funnels Labs</div><div>La pregunta</div></div>
+  <div style="text-align:center">
+    <div class="l" style="font-size:56px">Entonces…</div>
+    <div class="h" style="font-size:104px;margin-top:26px">¿qué funciona<br>en su lugar?</div>
+    <p class="p" style="margin-top:36px">Tres cosas que sí están trayendo clientes.</p>
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:44px">
+      <span class="num">01 · ANUNCIOS</span><span class="num">02 · PRESUPUESTO</span><span class="num">03 · WHATSAPP</span>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute;left:84px;right:84px;bottom:64px"><span>@funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+<!-- 4 #1 -->
+<section class="slide">
+  <div class="blob" style="width:700px;height:700px;right:-280px;bottom:-160px;background:radial-gradient(circle,rgba(181,255,43,.5),rgba(181,255,43,0) 66%)"></div>
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>01 / 03</div></div>
+  <span class="num" style="margin-top:56px">01</span>
+  <div class="h" style="font-size:76px;margin-top:22px">El anuncio simple<br><span class="mark">que sí vende.</span></div>
+  <p class="p" style="margin-top:22px">Gana lo real, no lo superproducido.</p>
+  <ul class="bul"><li>Una foto con tu celular.</li><li>Tres líneas de texto, sin guion ni editor.</li><li>Se ve como contenido, no como publicidad.</li></ul>
+  <div style="display:flex;gap:34px;margin-top:44px;align-items:flex-end">
+    <div class="card" style="width:380px;padding:16px">
+      <div style="display:flex;align-items:center;gap:12px;padding:6px 6px 14px"><span style="width:40px;height:40px;border-radius:99px;background:var(--ink)"></span><div><div style="font-size:18px;font-weight:700">tu.negocio</div><div style="font-size:14px;color:var(--faint)">Publicidad</div></div></div>
+      <div style="height:300px;border-radius:16px;background:linear-gradient(160deg,#e9e9e2,#cfcfc6);position:relative;overflow:hidden">
+        <div style="position:absolute;left:18px;right:18px;top:24px;font-weight:800;font-size:24px;line-height:1.2;background:#fff;padding:10px 14px;border-radius:10px">¿Tu WhatsApp también se llena de “info, precio”?</div>
+        <svg style="position:absolute;right:20px;bottom:20px" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="1.4"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+      </div>
+      <div style="margin-top:14px;background:var(--ink);color:#fff;font-weight:700;font-size:18px;text-align:center;border-radius:10px;padding:12px">Enviar mensaje</div>
+    </div>
+    <div style="font-size:24px;font-weight:600;line-height:1.35;color:var(--muted);max-width:360px;padding-bottom:30px">Hecho en 15 minutos.<br><span style="color:var(--ink);font-weight:800">Sin agencia, sin estudio.</span></div>
+  </div>
+  <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+<!-- 5 #2 -->
+<section class="slide">
+  <div class="blob" style="width:700px;height:700px;left:-300px;top:380px;background:radial-gradient(circle,rgba(201,169,255,.55),rgba(201,169,255,0) 66%)"></div>
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>02 / 03</div></div>
+  <span class="num" style="margin-top:auto">02</span>
+  <div class="h" style="font-size:76px;margin-top:22px">Un presupuesto<br><span class="mark">pequeño y constante.</span></div>
+  <p class="p" style="margin-top:22px">No necesitas presupuesto de agencia. Necesitas un sistema que puedas sostener cada mes.</p>
+  <ul class="bul"><li>Sin seis meses publicando a diario.</li><li>Sin esperar a que el algoritmo te elija.</li></ul>
+  <div class="card" style="margin-top:44px;padding:30px 34px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:20px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)">Tu campaña · 30 días</span><span style="font-size:18px;font-weight:700;background:#f1f1ec;border-radius:99px;padding:6px 14px">Activa</span></div>
+    <div style="display:flex;align-items:flex-end;gap:12px;height:240px;margin-top:22px;border-bottom:1px solid var(--line)">
+      <i style="flex:1;height:30%;background:#ecece5;border-radius:8px 8px 0 0"></i><i style="flex:1;height:42%;background:#ecece5;border-radius:8px 8px 0 0"></i><i style="flex:1;height:38%;background:#ecece5;border-radius:8px 8px 0 0"></i><i style="flex:1;height:55%;background:#ecece5;border-radius:8px 8px 0 0"></i><i style="flex:1;height:62%;background:#ecece5;border-radius:8px 8px 0 0"></i><i style="flex:1;height:74%;background:var(--ink);border-radius:8px 8px 0 0"></i><i style="flex:1;height:92%;background:var(--lime);border-radius:8px 8px 0 0"></i>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:18px;font-size:20px;font-weight:600;color:var(--muted)"><span>Mismo presupuesto diario</span><span style="color:var(--ink);font-weight:800">Más conversaciones</span></div>
+  </div>
+  <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+<!-- 6 #3 -->
+<section class="slide">
+  <div class="blob" style="width:760px;height:760px;right:-300px;top:-260px;background:radial-gradient(circle,rgba(181,255,43,.5),rgba(181,255,43,0) 66%)"></div>
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>03 / 03</div></div>
+  <span class="num" style="margin-top:auto">03</span>
+  <div class="h" style="font-size:76px;margin-top:22px">Del anuncio al cierre<br><span class="mark">por WhatsApp.</span></div>
+  <p class="p" style="margin-top:22px">Cada paso lleva al siguiente. Nadie se queda en un like.</p>
+  <div style="display:flex;flex-direction:column;gap:22px;margin-top:50px">
+    <div class="card" style="display:flex;align-items:center;gap:26px;padding:26px 30px"><span class="num" style="align-self:center">01</span><div><div style="font-size:32px;font-weight:800;letter-spacing:-0.02em">El anuncio lleva a WhatsApp</div><div style="font-size:22px;color:var(--muted);margin-top:4px">Un clic y ya está conversando contigo.</div></div></div>
+    <div class="card" style="display:flex;align-items:center;gap:26px;padding:26px 30px;margin-left:50px"><span class="num" style="align-self:center">02</span><div><div style="font-size:32px;font-weight:800;letter-spacing:-0.02em">La IA responde y califica</div><div style="font-size:22px;color:var(--muted);margin-top:4px">Al instante, a cualquier hora.</div></div></div>
+    <div class="card" style="display:flex;align-items:center;gap:26px;padding:26px 30px;margin-left:100px;border:2px solid var(--ink)"><span class="num" style="align-self:center;background:var(--lime);color:var(--ink)">03</span><div><div style="font-size:32px;font-weight:800;letter-spacing:-0.02em">Agenda o compra</div><div style="font-size:22px;color:var(--muted);margin-top:4px">Tú solo atiendes a quien ya está listo.</div></div></div>
+  </div>
+  <div class="foot"><span>@funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+<!-- 7 CTA -->
+<section class="slide">
+  <div class="blob" style="width:980px;height:980px;left:50px;top:300px;background:radial-gradient(circle,rgba(181,255,43,.45),rgba(181,255,43,0) 62%)"></div>
+  <div class="top"><div class="b"><i></i>Funnels Labs</div><div>Antes de irte</div></div>
+  <div style="margin:auto 0;text-align:center">
+    <div class="h" style="font-size:72px;line-height:1.05">Estos son 3 pasos<br>del sistema que usamos</div>
+    <div class="l" style="font-size:72px;line-height:1.05;margin-top:10px">para conseguir clientes</div>
+    <div class="h" style="font-size:72px;line-height:1.05;margin-top:10px"><span class="mark">sin depender del algoritmo.</span></div>
+    <p class="p" style="margin-top:50px">Comenta y te mostramos cómo se vería en tu negocio:</p>
+    <div style="display:inline-flex;align-items:center;gap:22px;margin-top:28px;background:var(--ink);border-radius:99px;padding:20px 46px 22px">
+      <span style="width:16px;height:16px;border-radius:99px;background:var(--lime);box-shadow:0 0 0 6px rgba(181,255,43,.3)"></span>
+      <span class="h" style="font-size:56px;color:#fff">SISTEMA</span></div>
+  </div>
+  <div class="foot"><span>@funnelslabs</span><span>Guárdalo</span></div>
+</section>
+
+</body>
+</html>
