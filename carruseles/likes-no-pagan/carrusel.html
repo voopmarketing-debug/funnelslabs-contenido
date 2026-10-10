@@ -44,6 +44,13 @@
   .q .ic svg { width:50px; height:50px; }
   .q span { min-width:0; font-weight:700; font-size:27px; line-height:1.15; letter-spacing:-0.02em; }
   .q b { font-weight:900; color:var(--lime); }
+  .sys { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:56px; }
+  .sys > div { width:250px; background:#151515; border:2px solid #2e2e2e; border-radius:28px; padding:30px 18px 26px; display:flex; flex-direction:column; align-items:center; }
+  .sys .ic { width:84px; height:84px; border-radius:99px; background:var(--lime); display:flex; align-items:center; justify-content:center; margin-bottom:18px; box-shadow:0 0 40px -6px rgba(181,255,43,.45); }
+  .sys .ic svg { width:44px; height:44px; }
+  .sys b { font-weight:900; font-size:34px; letter-spacing:-0.02em; }
+  .sys small { font-weight:600; font-size:24px; color:var(--muted); margin-top:4px; }
+  .plus { font-weight:900; font-size:44px; color:var(--lilac); }
 </style>
 </head>
 <body>
@@ -126,10 +133,16 @@
 <section class="slide" style="text-align:center">
   <div class="top"><div class="brand"><i></i>Funnels Labs</div><div class="count">05 / 05</div></div>
   <div style="margin:auto 0">
-    <div class="x" style="font-size:70px;line-height:1.05">Si quieres que tus redes <span class="hl">vendan</span> y no solo entretengan…</div>
-    <div class="x" style="font-size:64px;margin-top:70px">Comenta</div>
-    <div class="x" style="display:inline-block;font-size:150px;margin-top:14px;background:var(--lime);color:#0a0a0a;border-radius:30px;padding:10px 44px 26px">CLIENTES</div>
-    <p class="lead" style="margin-top:50px">y te envío el método para convertir<br>seguidores en compradores.</p>
+    <div class="x" style="font-size:62px;line-height:1.08">Tus redes no necesitan<br>más contenido.</div>
+    <div class="x" style="font-size:84px;margin-top:26px;line-height:1.1">Necesitan un<br><span class="hl">sistema de ventas.</span></div>
+    <div class="sys">
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.2"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3" fill="#0a0a0a"/></svg></span><b>Contenido</b><small>que atrae</small></div>
+      <span class="plus">→</span>
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="#0a0a0a"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/></svg></span><b>Funnel</b><small>que filtra</small></div>
+      <span class="plus">→</span>
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="#0a0a0a"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z"/><path d="M9 8.5c.3 2.6 2.3 5 5.5 6.2l1.3-1.4-1.8-1-1 .8a5.6 5.6 0 0 1-2.4-2.4l.8-1-1-1.8z" fill="#b5ff2b"/></svg></span><b>WhatsApp</b><small>que cierra</small></div>
+    </div>
+    <p class="lead" style="margin-top:50px">Comenta <b style="color:var(--lime)">SISTEMA</b> y te mostramos cómo lo<br>construimos para negocios como el tuyo.</p>
   </div>
   <div class="foot" style="justify-content:center"><span>@funnelslabs</span></div>
 </section>

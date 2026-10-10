@@ -4,6 +4,6 @@ Puedes tener miles de seguidores y aun así no vender, porque tu contenido entre
 
 Desliza y revisa en qué escalón se queda tu audiencia.
 
-👉 Comenta “CLIENTES” y te envío el método para convertir seguidores en compradores.
+👉 Comenta “SISTEMA” y te mostramos cómo lo construimos para negocios como el tuyo.
 
 #emprendedoreslatam #marketingdigital #funnelslabs
