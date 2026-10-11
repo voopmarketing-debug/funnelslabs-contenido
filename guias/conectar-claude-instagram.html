@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Cómo conectar Claude a tu Instagram — Funnels Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--ink:#0a0a0a;--muted:#4a4a43;--faint:#8a8a82;--line:#e3e3dc;--lime:#b5ff2b;--claude:#d97757;--paper:#fbfbf8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Montserrat",Arial,sans-serif;color:var(--ink);font-size:10.5pt;line-height:1.55}
+.page{width:210mm;height:297mm;padding:20mm 18mm 16mm;position:relative;page-break-after:always;background:var(--paper);display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+.hdr{display:flex;justify-content:space-between;font-size:7.5pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:12mm}
+.hdr b{color:var(--ink);display:flex;align-items:center;gap:6px}.hdr b i{width:7px;height:7px;border-radius:9px;background:var(--lime)}
+.ftr{margin-top:auto;display:flex;justify-content:space-between;font-size:7.5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border-top:1px solid var(--line);padding-top:4mm}
+h1{font-size:34pt;font-weight:800;letter-spacing:-0.04em;line-height:1.02}
+h2{font-size:19pt;font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:4mm}
+h3{font-size:11.5pt;font-weight:800;margin:5mm 0 2mm}
+p{color:var(--muted);margin-bottom:3mm}
+.mark{background:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%)}
+.step{display:inline-block;align-self:flex-start;background:var(--ink);color:var(--lime);font-weight:800;font-size:8pt;letter-spacing:.14em;border-radius:5px;padding:3px 8px;margin-bottom:3mm}
+ol,ul{margin:1mm 0 3mm 5mm;color:var(--muted)} li{margin-bottom:1.6mm;padding-left:1mm}
+li b, p b{color:var(--ink)}
+.box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:5mm 6mm;margin:3mm 0}
+.tip{background:#f3ffe0;border:1px solid #d7f5a6;border-radius:10px;padding:4mm 6mm;margin:3mm 0;font-size:9.5pt}
+.warn{background:#fff4ef;border:1px solid #f3cfc0;border-radius:10px;padding:4mm 6mm;margin:3mm 0;font-size:9.5pt}
+.tip b,.warn b{color:var(--ink)}
+.path{font-weight:700;color:var(--ink);background:#efefe8;border-radius:4px;padding:0 4px}
+table{width:100%;border-collapse:collapse;font-size:9pt;margin:2mm 0 3mm}
+th{text-align:left;font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--ink);padding:2mm 2mm}
+td{border-bottom:1px solid var(--line);padding:2.4mm 2mm;vertical-align:top;color:var(--muted)} td b{color:var(--ink)}
+.prompt{background:var(--ink);color:#fff;border-radius:8px;padding:3.5mm 5mm;margin:2mm 0;font-size:9.5pt}
+.check li{list-style:none;margin-left:-5mm;padding-left:7mm;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:1.6mm;width:3.2mm;height:3.2mm;border:1.5px solid var(--ink);border-radius:3px}
+</style></head><body>
+
+<!-- PORTADA -->
+<section class="page" style="background:var(--ink);color:#fff">
+  <div class="hdr" style="color:#8a8a82"><b style="color:#fff"><i></i>Funnels Labs</b><span>Guía gratuita</span></div>
+  <div style="margin-top:40mm">
+    <div style="font-size:14pt;font-weight:300">Cómo conectar</div>
+    <h1 style="font-size:52pt;color:#fff;margin-top:3mm">Claude<br>a tu <span style="color:var(--lime)">Instagram</span></h1>
+    <p style="color:#bdbdb5;font-size:12pt;margin-top:8mm;max-width:130mm">Paso a paso, en lenguaje simple, para dueños de negocio. Tiempo estimado: 30 a 45 minutos.</p>
+  </div>
+  <div style="margin-top:auto;display:flex;gap:4mm;flex-wrap:wrap">
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">1. Requisitos</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">2. Preparar Instagram</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">3. Elegir conector</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">4. Conectar en Claude</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">5. Primeros usos</span>
+  </div>
+  <div class="ftr" style="border-color:#2a2a2a;margin-top:10mm"><span>@funnelslabs</span><span>Octubre 2026</span></div>
+</section>
+
+<!-- 1 -->
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Antes de empezar</span></div>
+  <h2>Lo que necesitas saber <span class="mark">antes de empezar</span></h2>
+  <p>Claude no viene conectado a Instagram de fábrica. La conexión se hace con un <b>conector</b> (también llamado servidor MCP): una pieza que trabaja con la <b>API oficial de Meta</b> y le da a Claude acceso a tu cuenta, solo con los permisos que tú apruebes.</p>
+  <div class="box">
+    <h3 style="margin-top:0">Qué puedes lograr</h3>
+    <ul>
+      <li>Preguntarle a Claude por tus métricas: qué publicaciones funcionan mejor y por qué.</li>
+      <li>Pedirle ideas, textos y un calendario de contenido basado en tus datos reales.</li>
+      <li>Con conectores que lo permitan: leer y responder mensajes, y programar publicaciones.</li>
+    </ul>
+  </div>
+  <h3>Requisitos</h3>
+  <ul class="check">
+    <li><b>Cuenta de Instagram profesional</b> (Empresa o Creador). Las cuentas personales no funcionan con la API.</li>
+    <li><b>Página de Facebook</b> vinculada a esa cuenta de Instagram.</li>
+    <li><b>Acceso de administrador</b> a la página y a la cuenta.</li>
+    <li><b>Un plan de Claude que permita conectores personalizados</b> (por ejemplo Pro, Max, Team o Enterprise). Revisa tu plan en claude.ai.</li>
+    <li><b>Una cuenta en el servicio del conector</b> que elijas en el paso 3 (algunos son gratis, otros de pago).</li>
+  </ul>
+  <div class="warn"><b>Importante:</b> nunca le des a nadie tu contraseña de Instagram ni la pegues en un chat. Un conector serio te pide iniciar sesión con Facebook y aprobar permisos, nunca tu contraseña.</div>
+  <div class="ftr"><span>@funnelslabs</span><span>02</span></div>
+</section>
+
+<!-- 2 -->
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 1 y 2</span></div>
+  <span class="step">PASO 1</span>
+  <h2>Pasa tu Instagram a <span class="mark">cuenta profesional</span></h2>
+  <p>Si ya es de Empresa o Creador, salta al paso 2.</p>
+  <ol>
+    <li>Abre Instagram y entra a tu perfil.</li>
+    <li>Toca el menú <span class="path">☰</span> y entra a <span class="path">Tipo de cuenta y herramientas</span> (dentro de Configuración).</li>
+    <li>Toca <span class="path">Cambiar a cuenta profesional</span>.</li>
+    <li>Elige <b>Empresa</b> (recomendado para negocios) o <b>Creador</b>, y la categoría de tu negocio.</li>
+  </ol>
+  <div class="tip"><b>Tip:</b> cambiar a cuenta profesional no borra tus seguidores ni publicaciones, y te da acceso a estadísticas.</div>
+
+  <span class="step" style="margin-top:8mm">PASO 2</span>
+  <h2>Vincula Instagram con tu <span class="mark">página de Facebook</span></h2>
+  <ol>
+    <li>Entra a <b>Meta Business Suite</b> (business.facebook.com) con la cuenta que administra tu página.</li>
+    <li>Ve a <span class="path">Configuración</span> → <span class="path">Cuentas de Instagram</span> (o “Cuentas vinculadas”).</li>
+    <li>Toca <span class="path">Conectar</span>, inicia sesión con tu Instagram y confirma.</li>
+    <li>Revisa que la página y la cuenta aparezcan juntas en Business Suite.</li>
+  </ol>
+  <div class="tip"><b>Si no tienes página de Facebook:</b> créala primero desde Facebook (Páginas → Crear). Puede ser sencilla, solo con nombre y foto de tu negocio.</div>
+  <p style="font-size:8.5pt;color:var(--faint)">Los nombres de los menús pueden cambiar un poco según la versión de la app.</p>
+  <div class="ftr"><span>@funnelslabs</span><span>03</span></div>
+</section>
+
+<!-- 3 -->
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 3</span></div>
+  <span class="step">PASO 3</span>
+  <h2>Elige tu <span class="mark">conector</span></h2>
+  <p>Hay dos caminos. Para la mayoría de negocios, el camino A es el más rápido y seguro.</p>
+  <div class="box">
+    <h3 style="margin-top:0">A. Servicio con conector listo (recomendado)</h3>
+    <p>Empresas que ya conectaron la API de Meta y te dan una dirección (URL) para pegar en Claude. Algunos ejemplos:</p>
+    <table>
+      <tr><th>Para qué</th><th>Ejemplos</th><th>Qué revisar</th></tr>
+      <tr><td><b>Métricas y análisis</b><br>(solo lectura)</td><td>Windsor.ai, Porter Metrics, Data Bloo</td><td>Que sea de solo lectura si solo quieres análisis.</td></tr>
+      <tr><td><b>Mensajes, comentarios y publicaciones</b></td><td>Inrō, Outstand, ChatPlace</td><td>Qué acciones permite, precio y si puedes revisar antes de enviar.</td></tr>
+    </table>
+    <p style="font-size:8.5pt;color:var(--faint);margin:0">Son servicios de terceros; no son de Anthropic ni de Meta. Revisa sus condiciones y precios antes de contratar.</p>
+  </div>
+  <div class="box">
+    <h3 style="margin-top:0">B. Configuración propia (avanzado)</h3>
+    <p style="margin:0">Creas una app en <b>Meta for Developers</b>, generas un token de acceso e instalas un servidor MCP de código abierto. Da más control, pero requiere conocimientos técnicos. Si no tienes equipo técnico, usa el camino A.</p>
+  </div>
+  <h3>Antes de elegir, verifica que el conector:</h3>
+  <ul class="check">
+    <li>Usa la <b>API oficial de Meta</b> (Instagram Graph API).</li>
+    <li>Te pide <b>iniciar sesión con Facebook</b>, no tu contraseña.</li>
+    <li>Muestra claramente <b>qué permisos pide</b> y para qué.</li>
+    <li>Te permite <b>desconectarlo</b> cuando quieras.</li>
+  </ul>
+  <div class="ftr"><span>@funnelslabs</span><span>04</span></div>
+</section>
+
+<!-- 4 -->
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 4 y 5</span></div>
+  <span class="step">PASO 4</span>
+  <h2>Conecta el servicio <span class="mark">a tu Instagram</span></h2>
+  <ol>
+    <li>Crea tu cuenta en el servicio que elegiste.</li>
+    <li>Busca la opción de agregar Instagram y toca <b>Conectar con Facebook</b>.</li>
+    <li>Elige tu página de Facebook y tu cuenta de Instagram.</li>
+    <li>Aprueba <b>solo los permisos que necesitas</b>.</li>
+    <li>Busca en el servicio la sección <b>“Claude”</b> o <b>“MCP”</b> y copia la <b>URL del conector</b>.</li>
+  </ol>
+
+  <span class="step" style="margin-top:8mm">PASO 5</span>
+  <h2>Agrega el conector <span class="mark">en Claude</span></h2>
+  <ol>
+    <li>Entra a <b>claude.ai</b> desde la computadora.</li>
+    <li>Ve a <span class="path">Configuración</span> → <span class="path">Conectores</span>.</li>
+    <li>Toca <span class="path">Agregar conector personalizado</span>.</li>
+    <li>Ponle un nombre (por ejemplo, “Instagram”) y pega la URL que copiaste.</li>
+    <li>Toca <span class="path">Agregar</span> y luego <span class="path">Conectar</span>. Inicia sesión en el servicio y autoriza.</li>
+    <li>En un chat nuevo, abre el menú de herramientas y verifica que el conector esté <b>activado</b>.</li>
+  </ol>
+  <div class="tip"><b>Si no ves la opción de conectores personalizados:</b> revisa tu plan. En planes de equipo, el administrador debe habilitarla.</div>
+  <p style="font-size:8.5pt;color:var(--faint)">Los nombres exactos de los botones pueden cambiar con las actualizaciones de Claude.</p>
+  <div class="ftr"><span>@funnelslabs</span><span>05</span></div>
+</section>
+
+<!-- 5 -->
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 6</span></div>
+  <span class="step">PASO 6</span>
+  <h2>Pruébalo con estos <span class="mark">primeros mensajes</span></h2>
+  <p>Copia y pega en un chat nuevo de Claude, con el conector activado:</p>
+  <div class="prompt">Revisa mis últimas 20 publicaciones de Instagram y dime cuáles tuvieron más guardados, comentarios y mensajes. Explícame por qué crees que funcionaron.</div>
+  <div class="prompt">Con base en lo que mejor me funcionó, propón 5 ideas de contenido para esta semana, con el texto de cada publicación.</div>
+  <div class="prompt">Arma un calendario de publicaciones para las próximas 2 semanas: día, formato, tema y texto.</div>
+  <div class="prompt">Lee mis mensajes sin responder y escribe un borrador de respuesta para cada uno. No envíes nada sin que yo lo apruebe.</div>
+  <div class="prompt">Estos son mis servicios y precios: [escríbelos]. Redacta respuestas para las 5 preguntas que más me hacen.</div>
+
+  <h3 style="margin-top:8mm">Buenas prácticas</h3>
+  <ul>
+    <li><b>Empieza en modo lectura</b> (métricas e ideas) antes de dejar que responda o publique.</li>
+    <li><b>Revisa siempre</b> lo que Claude va a enviar a un cliente.</li>
+    <li><b>No compartas</b> contraseñas ni datos sensibles de clientes en el chat.</li>
+    <li><b>Para desconectarlo:</b> quita el conector en Claude (Configuración → Conectores) y revoca el acceso en Facebook (Configuración → Integraciones comerciales).</li>
+  </ul>
+  <div class="ftr"><span>@funnelslabs</span><span>06</span></div>
+</section>
+
+<!-- CIERRE -->
+<section class="page" style="background:var(--ink);color:#fff">
+  <div class="hdr" style="color:#8a8a82"><b style="color:#fff"><i></i>Funnels Labs</b><span>Siguiente paso</span></div>
+  <div style="margin:auto 0">
+    <h1 style="color:#fff;font-size:40pt">Instagram atrae.<br><span style="color:var(--lime)">WhatsApp cierra.</span></h1>
+    <p style="color:#bdbdb5;font-size:12pt;margin-top:8mm;max-width:140mm">Conectar Claude a Instagram te ayuda a entender y mover tu contenido. Pero muchas ventas se cierran cuando el cliente te escribe por WhatsApp.</p>
+    <p style="color:#bdbdb5;font-size:12pt;max-width:140mm">En Funnels Labs armamos el sistema completo: anuncios que llevan a WhatsApp, un agente de IA que responde 24/7 y un CRM para que ninguna venta se pierda.</p>
+    <div style="display:inline-block;margin-top:10mm;background:var(--lime);color:var(--ink);font-weight:800;font-size:13pt;border-radius:99px;padding:4mm 8mm">Escríbenos “SISTEMA” en @funnelslabs</div>
+  </div>
+  <div class="ftr" style="border-color:#2a2a2a"><span>@funnelslabs</span><span>funnelslabs.app</span></div>
+</section>
+</body></html>
