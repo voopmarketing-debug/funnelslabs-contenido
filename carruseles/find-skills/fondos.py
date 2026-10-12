@@ -8,12 +8,12 @@ W,H=1080,1350
 PT={2:694,3:752,5:692,6:694}  # y de la cabeza = borde inferior del panel + 16
 FEET=1335
 CFG={
- 4:dict(bg=1,ch='brazos',   w=860,top=404,y0=194,dx=0, shift=0.0,bright=.92),
- 2:dict(bg=2,ch='silla-lado',ytop=PT[2],dx=0,shift=1.0,bright=.90),
- 3:dict(bg=3,ch='chat',     ytop=PT[3],dx=0, shift=1.0,bright=.95),
- 5:dict(bg=4,ch='caminando',ytop=PT[5],dx=0, shift=1.0,bright=.85,billboard=True),
- 6:dict(bg=5,ch='modelo',   ytop=PT[6],dx=0, shift=1.0,bright=.95),
- 7:dict(bg=6,ch='abrazo',   y0=72, w=744,top=430,dx=0, shift=0.0,bright=1.0,floor=True),
+ 4:dict(bg=1,ch='brazos',   ytop=432,feet=1420,dx=0,shift=0.0,bright=.92),
+ 2:dict(bg=2,ch='silla-lado',ytop=PT[2],feet=1500,dx=0,shift=1.0,bright=.90),
+ 3:dict(bg=3,ch='chat',     ytop=PT[3],feet=1500,dx=0,shift=1.0,bright=.95),
+ 5:dict(bg=4,ch='caminando',ytop=PT[5],feet=1500,dx=0,shift=1.0,bright=.85,billboard=True),
+ 6:dict(bg=5,ch='modelo',   ytop=PT[6],feet=1500,dx=0,shift=1.0,bright=.95),
+ 7:dict(bg=6,ch='abrazo',   ytop=452,feet=1420,dx=0,shift=0.0,bright=1.0,floor=True),
 }
 def load_bg(n,c):
     im=cv2.imread(f'bg/orig-{n}.jpg'); h,w=im.shape[:2]
@@ -60,7 +60,7 @@ def cut(c):
 def place(rgb,al,c):
     ys,xs=np.where(al>.5); ymin,ymax,xmin,xmax=ys.min(),ys.max(),xs.min(),xs.max()
     if 'ytop' in c:
-        s=(FEET-c['ytop'])/(ymax-ymin); top=int(c['ytop']-ymin*s); left=int(W/2+c['dx']-(xmin+xmax)/2*s)
+        s=(c.get('feet',FEET)-c['ytop'])/(ymax-ymin); top=int(c['ytop']-ymin*s); left=int(W/2+c['dx']-(xmin+xmax)/2*s)
     else:
         s=c['w']/rgb.shape[1]; left=(W-c['w'])//2+c['dx']; top=int(c['top']-c['y0']*s)
     nw,nh=int(rgb.shape[1]*s),int(rgb.shape[0]*s)
@@ -71,7 +71,9 @@ def place(rgb,al,c):
     print(c['ch'],'escala',round(s,2),'alto',round((ymax-ymin)*s))
     return R,A
 def shadow(A):
-    ys,xs=np.where(A>.5); yb=ys.max(); h=110
+    ys,xs=np.where(A>.5); yb=ys.max()
+    if yb>=H-60: return np.zeros_like(A)   # pies recortados por el borde: sin sombra
+    h=110
     band=A[yb-h:yb+1].copy(); band[:h-55]=0                 # solo la zona de los zapatos
     band=np.flipud(band); sq=cv2.resize(band,(W,int(band.shape[0]*.22)))
     sh=np.zeros_like(A); y=yb-8
