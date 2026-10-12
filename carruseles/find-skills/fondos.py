@@ -37,7 +37,9 @@ def load_bg(n,c,w,h):
 REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}
 REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}   # huecos de fondo concretos (brazo-sillón, entre piernas...)
 EXTRA={'abrazo','silla-lado'}   # solo donde rembg pierde partes oscuras (patas del sillón); en las demás crea un halo negro
-PATCH={'caminando':[[(656,830),(724,830),(722,860),(715,895),(704,925),(696,950),(650,950),(654,900),(657,860)]]}   # pierna de atrás
+DROP={'caminando':[[(262,795),(286,795),(296,850),(298,900),(294,935),(284,952),(264,952)]]}   # hueco negro entre las piernas del voxel
+HEAD_BOX={'silla-lado':[(290,235,450,420)],'abrazo':[(390,425,550,600)]}      # cabezas de las personas sentadas (el resto se detecta solo)
+PATCH={'chat':[[(556,860),(598,860),(596,900),(594,940),(590,980),(586,1010),(584,1036),(556,1036)]],'caminando':[[(656,830),(724,830),(722,860),(715,895),(704,925),(696,950),(650,950),(654,900),(657,860)]]}   # pierna de atrás
 def cut(c):
     a=np.array(Image.open(f'bg/cut-{c["ch"]}.png'))
     src=cv2.imread(f'img/{c["ch"]}.png').astype(np.float32)
@@ -54,6 +56,16 @@ def cut(c):
     extra=((m>=3.0)&(near>0)&(c['ch'] in EXTRA)).astype(np.uint8)
     extra=cv2.morphologyEx(extra,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9)))
     full=(shape|extra).astype(np.uint8)
+    # cabezas: el pelo oscuro se recupera de la foto original (rembg lo recorta plano)
+    hb=np.zeros(shape.shape,np.uint8)
+    n0,lab0,st0,_=cv2.connectedComponentsWithStats(shape)
+    for i in range(1,n0):
+        x,y,w,h,ar=st0[i]
+        if ar>2500: hb[max(y-25,0):y+235,max(x,0):x+w]=1
+    for x0,y0,x1,y1 in HEAD_BOX.get(c['ch'],[]): hb[y0:y1,x0:x1]=1
+    hair=((m>=5.0)&(hb>0)&(cv2.dilate(shape,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(41,41)))>0)).astype(np.uint8)
+    hair=cv2.morphologyEx(hair,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3)))
+    full=(full|hair).astype(np.uint8)
     # huecos de fondo (negro exacto) que se quitan; el resto del negro es ropa en sombra y se conserva
     pk=np.zeros_like(shape)
     z=((m<2.0)&(full>0)).astype(np.uint8)
@@ -67,6 +79,9 @@ def cut(c):
         pm=np.zeros(full.shape,np.float32); cv2.fillPoly(pm,[np.array(poly,np.int32)],1.0)
         pm=cv2.GaussianBlur(pm,(0,0),7)[...,None]*(full[...,None]>0)       # lleva el negro de la sombra al verde oscuro de la tela, con borde suave
         src=src+pm*np.maximum(0,np.array([46,44,6],np.float32)-src)
+    for poly in DROP.get(c['ch'],[]):
+        pm=np.zeros(full.shape,np.uint8); cv2.fillPoly(pm,[np.array(poly,np.int32)],1)
+        full[(pm>0)&(m<8)]=0
     n3,lab3,st3,_=cv2.connectedComponentsWithStats(full)
     shape=np.zeros_like(full)
     for i in range(1,n3):
@@ -74,7 +89,8 @@ def cut(c):
     d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3); d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
     # el borde lo decide la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
     key=cv2.GaussianBlur(np.clip((src.max(2)-7)/16,0,1),(0,0),0.6)
-    band=np.where(d_in>6,1.0,np.where(d_out<6,key,0.0))
+    key=np.where(hb>0,cv2.GaussianBlur(np.clip((src.max(2)-3)/9,0,1),(0,0),0.6),key)
+    band=np.where(d_in>6,1.0,np.where(d_out<(np.where(hb>0,10,6)),key,0.0))
     al=cv2.GaussianBlur(band.astype(np.float32),(0,0),0.6)
     rgb=np.where((al<0.98)[...,None],src/np.clip(al,0.65,1)[...,None],src)
     ring=(((d_in<4)|(shape==0))&(al>0.003)).astype(np.uint8)
