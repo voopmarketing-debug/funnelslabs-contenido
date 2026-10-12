@@ -109,3 +109,29 @@ Los dos se ven de cuerpo entero, con los tenis tocando el piso. Cámara a la alt
 Fondo negro liso y UNIFORME, sin degradados, sin franjas, sin marcos ni bordes, sin viñeta. Deja libre el tercio superior de la imagen para un logo. No dibujes la cuadrícula, no escribas ningún texto ni logos. Una sola imagen.
 
 Ajuste si sale rígida: "Haz mi pose más relajada y natural, como una foto de moda: hombros sueltos y el torso girado un poco hacia la cámara. No cambies nada más".
+
+---
+
+# Versión 3: corrige la escala (el voxel salió pequeño y flotando en el apoyabrazos)
+
+Adjuntar: hoja de personaje + foto de la silla + imagen del abrazo (como referencia de escala).
+Evitar: pose del puño con el voxel sentado en el apoyabrazos (Gemini lo hace diminuto y flotando; ver escena-fallida-escala.jpg).
+
+## Bloque base v3
+
+Crea una foto editorial de estudio, vertical 4:5, alta resolución. Personajes: yo (la persona real de la foto de la poltrona, con mi rostro, barba y complexión exactos) y mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de bloques con barba corta, chaqueta de cierre verde azulado, camiseta blanca, pantalón verde azulado, tenis blancos con talón rojo y reloj plateado en la muñeca izquierda. Yo visto el mismo traje verde azulado con camiseta blanca y tenis blancos, y llevo unas gafas de sol negras de montura wayfarer con lentes completamente negros sin reflejos. El personaje voxel NO lleva gafas y sus manos son puños de bloques con los dedos marcados.
+
+ESCALA OBLIGATORIA: el personaje voxel tiene el MISMO tamaño y la misma estatura que yo, como una persona adulta de 1,75 m. No es un muñeco pequeño. Los dos tienen los pies firmes sobre el piso, con sombra de contacto. Nada flota, nadie se sienta en los apoyabrazos.
+
+Luz y fondo: la misma iluminación de estudio sobre los dos, con sombras suaves y una luz de contorno sutil. Fondo negro liso y UNIFORME, sin degradados, sin franjas, sin marcos ni bordes, sin viñeta. Deja libre el tercio superior para un logo. No dibujes la cuadrícula ni escribas texto ni logos. Una sola imagen.
+
+## Poses
+A. Modelo: POSE: el personaje voxel está SENTADO en la poltrona verde azulado de la foto, con la misma postura de esa foto: manos entrelazadas sobre las piernas, espalda recta, mirando a la cámara con una leve sonrisa. Yo estoy DE PIE junto a la poltrona, a su derecha, con pose de modelo de revista: cuerpo en tres cuartos, una mano en el bolsillo y la otra apoyada en el respaldo, barbilla ligeramente levantada, mirando a la cámara con seguridad. Los dos de cuerpo entero.
+
+B. Espalda con espalda: POSE: el personaje voxel y yo estamos DE PIE, espalda con espalda y con los brazos cruzados sobre el pecho, mirando a la cámara con expresión segura, como una portada de revista. Él a mi izquierda y yo a su derecha, con los hombros tocándose. La poltrona verde azulado está detrás de nosotros, un poco desenfocada. Cuerpo entero, con los tenis a la vista.
+
+C. Caminando: POSE: el personaje voxel y yo CAMINAMOS juntos hacia la cámara, lado a lado, con pasos sincronizados y una mano en el bolsillo cada uno. Yo voy a su derecha. Los dos miramos al frente con confianza y los tenis se ven en movimiento. La poltrona queda al fondo, desenfocada. Cuerpo entero, con ambos pies apoyados o en pleno paso.
+
+D. Cierre, apretón de manos: POSE: el personaje voxel y yo estamos DE PIE, uno frente al otro de lado, dándonos un apretón de manos en el centro de la imagen, y los dos miramos a la cámara con una leve sonrisa. Cuerpo entero. La poltrona verde azulado queda al fondo, desenfocada.
+
+Corrección si el voxel sale pequeño: "el personaje voxel es de mi misma estatura, corrígelo y mantén todo lo demás".
