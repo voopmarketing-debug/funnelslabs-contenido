@@ -1,6 +1,6 @@
 ## Perfil de Funnels Labs
 
-Tus carruseles se ven igual que los de todos. Aquí tienes 8 ideas para cambiarlo.
+Tus carruseles se ven igual que los de todos. Aquí tienes 7 ideas para cambiarlo.
 
 Guárdalo y comenta "CARRUSEL": te enviamos el paso a paso para crear el tuyo.
 
@@ -8,7 +8,7 @@ Guárdalo y comenta "CARRUSEL": te enviamos el paso a paso para crear el tuyo.
 
 ## Perfil personal (etiquetando a @funnelslabs)
 
-Tus carruseles se ven igual que los de todos. Aquí tienes 8 ideas para cambiarlo.
+Tus carruseles se ven igual que los de todos. Aquí tienes 7 ideas para cambiarlo.
 
 Guárdalo y comenta "CARRUSEL": desde @funnelslabs te enviamos el paso a paso para crear el tuyo.
 
