@@ -91,3 +91,21 @@ Fondo y formato: fondo negro liso y UNIFORME, sin degradados, sin franjas, sin m
 
 ## Ajuste para la portada ya generada (escena 1)
 Corrige la imagen: mantén todo igual, pero inclina el cuerpo del personaje voxel un poco hacia mi derecha, con la cabeza ligeramente ladeada hacia mí. Sus manos deben ser puños de bloques con los dedos marcados, apoyadas sobre los bordes superiores del respaldo. Añade la sombra que su cuerpo proyecta sobre el respaldo y sobre mis hombros, y la misma iluminación de estudio que tengo yo. No cambies mi rostro, mis gafas ni mi ropa.
+
+---
+
+# Pose 2 nueva ("modelo"): el personaje sentado en la poltrona y yo de pie
+
+Adjuntar: hoja de personaje + foto de la silla. El abrazo (escena-2-abrazo.jpg) queda como pose de repuesto.
+
+Crea una foto editorial de estudio, vertical 4:5, alta resolución, usando la foto de la poltrona verde azulado como referencia de la poltrona, la iluminación y el fondo.
+
+En la poltrona está SENTADO mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de bloques con barba corta, chaqueta de cierre verde azulado, camiseta blanca, pantalón verde azulado, tenis blancos con talón rojo y reloj plateado en la muñeca izquierda. Su pose copia la de la foto de la poltrona: manos entrelazadas sobre las piernas, piernas ligeramente abiertas, espalda recta, mirando a la cámara con una leve sonrisa. El personaje voxel NO lleva gafas. Sus manos son puños de bloques con los dedos marcados.
+
+DE PIE junto a la poltrona, a su derecha, estoy yo, con la pose de un modelo de revista: cuerpo en tres cuartos, el peso sobre una pierna y la otra cruzada por delante, una mano en el bolsillo del pantalón y la otra apoyada con elegancia en el borde superior del respaldo, la barbilla ligeramente levantada, mirando a la cámara con expresión segura. Mantén exactamente mi rostro, mi barba y mi complexión de la foto de la poltrona. Visto el mismo traje verde azulado, con la chaqueta abierta sobre la camiseta blanca, tenis blancos y reloj. Llevo unas gafas de sol negras de montura wayfarer, con lentes completamente negros sin reflejos.
+
+Los dos se ven de cuerpo entero, con los tenis tocando el piso. Cámara a la altura de mi cintura, ligeramente hacia arriba, para dar presencia. La misma iluminación de estudio sobre los dos, con una luz de contorno suave en mis hombros, sombras suaves sobre la poltrona y el piso, y sombra de contacto donde se apoya cada uno.
+
+Fondo negro liso y UNIFORME, sin degradados, sin franjas, sin marcos ni bordes, sin viñeta. Deja libre el tercio superior de la imagen para un logo. No dibujes la cuadrícula, no escribas ningún texto ni logos. Una sola imagen.
+
+Ajuste si sale rígida: "Haz mi pose más relajada y natural, como una foto de moda: hombros sueltos y el torso girado un poco hacia la cámara. No cambies nada más".
