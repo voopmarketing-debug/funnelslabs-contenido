@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Cómo crear carruseles con IA — Funnels Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--ink:#0a0a0a;--muted:#4a4a43;--faint:#8a8a82;--line:#e3e3dc;--lime:#b5ff2b;--paper:#fbfbf8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Montserrat",Arial,sans-serif;color:var(--ink);font-size:10.3pt;line-height:1.55}
+.page{width:210mm;height:297mm;padding:18mm 18mm 14mm;position:relative;page-break-after:always;background:var(--paper);display:flex;flex-direction:column;overflow:hidden}
+.page:last-child{page-break-after:auto}
+.hdr{display:flex;justify-content:space-between;font-size:7.5pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:9mm}
+.hdr b{color:var(--ink);display:flex;align-items:center;gap:6px}.hdr b i{width:7px;height:7px;border-radius:9px;background:var(--lime)}
+.ftr{margin-top:auto;display:flex;justify-content:space-between;font-size:7.5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border-top:1px solid var(--line);padding-top:4mm}
+h1{font-size:34pt;font-weight:900;letter-spacing:-0.04em;line-height:1.02}
+h2{font-size:18pt;font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:3.5mm}
+h3{font-size:11pt;font-weight:800;margin:4mm 0 1.5mm}
+p{color:var(--muted);margin-bottom:2.6mm}
+.mark{background:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%)}
+.step{display:inline-block;align-self:flex-start;background:var(--ink);color:var(--lime);font-weight:800;font-size:8pt;letter-spacing:.14em;border-radius:5px;padding:3px 8px;margin-bottom:3mm}
+ol,ul{margin:1mm 0 3mm 5mm;color:var(--muted)} li{margin-bottom:1.5mm;padding-left:1mm} li b,p b{color:var(--ink)}
+.box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:4.5mm 5.5mm;margin:2.5mm 0}
+.tip{background:#f3ffe0;border:1px solid #d7f5a6;border-radius:10px;padding:3.5mm 5.5mm;margin:2.5mm 0;font-size:9.4pt}
+.warn{background:#fff4ef;border:1px solid #f3cfc0;border-radius:10px;padding:3.5mm 5.5mm;margin:2.5mm 0;font-size:9.4pt}
+.tip b,.warn b{color:var(--ink)}
+.prompt{background:var(--ink);color:#e8e8e2;border-radius:8px;padding:3.2mm 4.5mm;margin:1.8mm 0 3mm;font-size:9pt;line-height:1.5}
+.prompt b{color:var(--lime)}
+.idea{display:flex;gap:3mm;align-items:flex-start;margin-top:4mm}
+.idea .n{flex:none;width:7mm;height:7mm;border-radius:50%;background:var(--ink);color:var(--lime);font-weight:800;font-size:9pt;display:flex;align-items:center;justify-content:center;margin-top:.5mm}
+.idea h3{margin:0 0 .5mm}.idea p{margin-bottom:1mm;font-size:9.4pt}
+.check li{list-style:none;margin-left:-5mm;padding-left:7mm;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:1.6mm;width:3.2mm;height:3.2mm;border:1.5px solid var(--ink);border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:9pt;margin:2mm 0}
+th{text-align:left;font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--ink);padding:2mm}
+td{border-bottom:1px solid var(--line);padding:2.2mm;vertical-align:top;color:var(--muted)} td b{color:var(--ink)}
+</style></head><body>
+
+<section class="page" style="background:var(--ink);color:#fff">
+  <div class="hdr" style="color:#8a8a82"><b style="color:#fff"><i></i>Funnels Labs</b><span>Guía gratuita</span></div>
+  <div style="margin-top:38mm">
+    <div style="font-size:14pt;font-weight:300">Paso a paso</div>
+    <h1 style="font-size:50pt;color:#fff;margin-top:3mm">Cómo crear<br><span style="color:var(--lime)">carruseles</span><br>con IA</h1>
+    <p style="color:#bdbdb5;font-size:12pt;margin-top:8mm;max-width:130mm">8 ideas de carruseles en tendencia, con el prompt exacto para crear cada imagen. Tiempo estimado: 20 minutos por carrusel.</p>
+  </div>
+  <div style="margin-top:auto;display:flex;gap:3mm;flex-wrap:wrap">
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">1. Preparar</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">2. Crear la imagen</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">3. Las 8 ideas</span>
+    <span style="border:1px solid #3a3a36;border-radius:99px;padding:2mm 4mm;font-size:8.5pt;color:#d8d8d0">4. Montar y publicar</span>
+  </div>
+  <div class="ftr" style="border-color:#2a2a2a;margin-top:10mm"><span>@funnelslabs</span><span>Octubre 2026</span></div>
+</section>
+
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Antes de empezar</span></div>
+  <h2>La idea: <span class="mark">una imagen que frene el scroll</span></h2>
+  <p>Un carrusel funciona cuando la primera imagen detiene el dedo y las siguientes dan una razón para seguir deslizando. Esta guía te da una receta simple: <b>tu foto + un prompt + un diseño limpio</b>.</p>
+  <h3>Qué necesitas</h3>
+  <ul class="check">
+    <li><b>Una foto tuya</b> (o de tu producto o negocio), clara, con buena luz y de frente.</li>
+    <li><b>Un asistente de IA que edite imágenes.</b> Por ejemplo ChatGPT o Gemini: adjuntas la foto y le pides el cambio. Revisa que tu plan permita generar imágenes.</li>
+    <li><b>Una herramienta de diseño</b> para armar los slides: Canva, Figma o similar.</li>
+    <li><b>Un tema claro</b> para cada carrusel: qué quieres que tu cliente entienda o haga al final.</li>
+  </ul>
+  <div class="box">
+    <h3 style="margin-top:0">Receta de 4 pasos</h3>
+    <ol>
+      <li><b>Elige la idea</b> (página 4 en adelante) según lo que quieras mostrar.</li>
+      <li><b>Sube tu foto</b> a la IA y pega el prompt de esa idea.</li>
+      <li><b>Revisa el resultado</b> (manos, texto, ojos) y pide ajustes hasta que se vea natural.</li>
+      <li><b>Monta el slide</b> con tu título y tus colores, y agrega un cierre con una acción.</li>
+    </ol>
+  </div>
+  <div class="warn"><b>Importante sobre las imágenes:</b> usa fotos tuyas o con permiso. No copies fotos ni diseños de otras cuentas: puedes inspirarte en la <i>idea</i>, pero las imágenes deben ser tuyas.</div>
+  <div class="ftr"><span>@funnelslabs</span><span>02</span></div>
+</section>
+
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 2</span></div>
+  <span class="step">PASO 2</span>
+  <h2>Cómo pedirle <span class="mark">la imagen a la IA</span></h2>
+  <p>Todos los prompts de esta guía siguen la misma estructura. Entenderla te sirve para crear tus propias ideas.</p>
+  <div class="box">
+    <table>
+      <tr><th>Parte</th><th>Qué escribir</th></tr>
+      <tr><td><b>1. Qué hay en la foto</b></td><td>"Usa la persona de la foto que adjunto" (conserva su rostro).</td></tr>
+      <tr><td><b>2. Qué cambiar</b></td><td>El fondo, un objeto, una pose, un efecto.</td></tr>
+      <tr><td><b>3. Qué NO cambiar</b></td><td>"Mantén mi rostro, barba y ropa exactamente iguales."</td></tr>
+      <tr><td><b>4. Formato</b></td><td>"Vertical 4:5, alta resolución, luz natural."</td></tr>
+    </table>
+  </div>
+  <h3>Prompt base (cópialo y cámbialo)</h3>
+  <div class="prompt">Usa la foto que adjunto como referencia de la persona. <b>[Describe el cambio]</b>. Mantén mi rostro, rasgos y expresión exactamente iguales. Formato vertical 4:5, alta resolución, iluminación natural, estilo fotográfico realista.</div>
+  <h3>Cuando algo sale mal</h3>
+  <ul>
+    <li><b>Rostro distinto:</b> repite "mantén mi rostro exactamente igual a la foto adjunta" y vuelve a adjuntar la foto.</li>
+    <li><b>Manos raras:</b> pide "manos con cinco dedos, anatomía natural" o cambia la pose para que las manos no se vean.</li>
+    <li><b>Texto deformado dentro de la imagen:</b> no le pidas texto a la IA. Escribe los títulos después, en Canva o Figma, donde salen nítidos.</li>
+    <li><b>Imagen pequeña:</b> pide "alta resolución" y, si hace falta, usa el ampliador de tu herramienta de diseño.</li>
+  </ul>
+  <div class="tip"><b>Tip:</b> cambia una sola cosa por pedido. Si pides cinco cambios a la vez, aumentan los errores.</div>
+  <div class="ftr"><span>@funnelslabs</span><span>03</span></div>
+</section>
+
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 3 · Ideas 1 a 4</span></div>
+  <span class="step">PASO 3</span>
+  <h2>Las 8 ideas, <span class="mark">con su prompt</span></h2>
+
+  <div class="idea"><span class="n">1</span><div><h3>Agarra la story</h3><p>Sostienes con la mano una historia de Instagram. Ideal para presentar tu marca o tus categorías.</p></div></div>
+  <div class="prompt">Usa la persona de mi foto. Está de pie, con el brazo derecho levantado sosteniendo con la mano un círculo de historia de Instagram, mirando hacia arriba. Detrás, una barra negra de historias inclinada con círculos de colores. Fondo de pared beige liso. Mantén mi rostro y rasgos exactamente iguales.</div>
+
+  <div class="idea"><span class="n">2</span><div><h3>Ubicación</h3><p>Muestra dónde está tu negocio con una mano sosteniendo tu producto y un mapa al lado.</p></div></div>
+  <div class="prompt">Una mano de hombre sosteniendo [tu producto, por ejemplo un café] frente a la fachada de un negocio, con luz natural de día. A la derecha, un mapa limpio con un pin verde y una tarjeta que dice "Tu negocio". Estilo fotográfico realista.</div>
+
+  <div class="idea"><span class="n">3</span><div><h3>Piedra, papel o…</h3><p>Tres opciones: dos genéricas y la tercera es tu producto o servicio.</p></div></div>
+  <div class="prompt">Tres tarjetas verticales en fila sobre fondo verde claro: la primera con una piedra, la segunda con una hoja de papel, la tercera con <b>[tu producto]</b> en primer plano. Mismo estilo, sombras suaves, sin texto.</div>
+
+  <div class="idea"><span class="n">4</span><div><h3>Bejeweled</h3><p>Decora tus fotos con gemas, estrellas o stickers para darles energía.</p></div></div>
+  <div class="prompt">Usa mi foto. Añade alrededor de la persona gemas brillantes y corazones de cristal en verde lima y lila, como stickers sobre la foto, sin tapar el rostro. Mantén mi rostro exactamente igual.</div>
+
+  <div class="ftr"><span>@funnelslabs</span><span>04</span></div>
+</section>
+
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 3 · Ideas 5 a 8</span></div>
+
+  <div class="idea" style="margin-top:0"><span class="n">5</span><div><h3>Sorbo</h3><p>La foto se toma como si la cámara estuviera dentro del vaso, mirándote.</p></div></div>
+  <div class="prompt">Foto tomada desde el fondo de un vaso transparente con [bebida y hielo], mirando hacia arriba a través de la apertura circular. En el círculo se ve la persona de mi foto con una pajilla en la boca, con cielo azul detrás. Mantén mi rostro exactamente igual.</div>
+
+  <div class="idea"><span class="n">6</span><div><h3>Comportamiento estrella</h3><p>Muestra lo que hace especial a tu marca: valores, personalidad y detalles.</p></div></div>
+  <div class="prompt">Usa mi foto. Añade estrellas verde lima, como stickers brillantes, alrededor de la escena, sin tapar mi rostro. En una segunda imagen, mi escritorio con una laptop y un vaso de café, también con estrellas pequeñas. Mantén mi rostro igual.</div>
+
+  <div class="idea"><span class="n">7</span><div><h3>Fondo animado</h3><p>Interviene el fondo para que la foto se vea más dinámica.</p></div></div>
+  <div class="prompt">Usa mi foto. Detrás de la persona, añade una explosión gráfica en verde lima con picos, como un sticker. Mantén mi rostro, pose y ropa exactamente iguales. Segunda imagen: <b>[tu producto]</b> sobre una mesa con puntos verdes circulares como decoración.</div>
+
+  <div class="idea"><span class="n">8</span><div><h3>La pieza</h3><p>Una foto cortada como rompecabezas, con una pieza que sobresale. Funciona con fotos llamativas de tu negocio.</p></div></div>
+  <div class="prompt">Convierte esta foto en un rompecabezas de nueve piezas: líneas blancas finas y bordes de pieza visibles. Una pieza del centro está desplazada hacia afuera, en blanco hueso, con sombra suave. No cambies el resto de la imagen.</div>
+
+  <div class="tip"><b>Cada marca, su estilo:</b> cambia "verde lima" por los colores de tu marca para que todos tus carruseles se vean coherentes.</div>
+  <div class="ftr"><span>@funnelslabs</span><span>05</span></div>
+</section>
+
+<section class="page">
+  <div class="hdr"><b><i></i>Funnels Labs</b><span>Paso 4</span></div>
+  <span class="step">PASO 4</span>
+  <h2>Monta tu carrusel y <span class="mark">publícalo</span></h2>
+  <ol>
+    <li><b>Crea un diseño de 1080 × 1350 px</b> (formato vertical 4:5, el que mejor se ve en Instagram).</li>
+    <li><b>Slide 1 (portada):</b> tu foto más llamativa con un título grande de máximo 6 palabras.</li>
+    <li><b>Slides 2 a 9:</b> una idea por slide: título corto + imagen + una frase de explicación.</li>
+    <li><b>Último slide:</b> un cierre con una sola acción clara (guardar, comentar una palabra o escribirte).</li>
+    <li><b>Usa la misma tipografía y los mismos colores</b> en todos los slides.</li>
+    <li><b>Exporta cada slide como PNG</b> y súbelos en orden.</li>
+  </ol>
+  <h3>Checklist antes de publicar</h3>
+  <ul class="check">
+    <li>El título de la portada se lee en el celular, sin hacer zoom.</li>
+    <li>Revisaste la ortografía de todos los textos.</li>
+    <li>Las manos y los rostros de las imágenes se ven naturales.</li>
+    <li>Usaste fotos tuyas o con permiso.</li>
+    <li>El último slide tiene una sola acción.</li>
+    <li>El texto del post es corto y termina con una pregunta o una acción.</li>
+  </ul>
+  <div class="box">
+    <h3 style="margin-top:0">Texto del post (plantilla)</h3>
+    <div class="prompt" style="margin-bottom:0">[Idea que engancha en una línea]<br><br>👉 Comenta "[PALABRA]" y te enviamos [lo que prometes].<br><br>#tuhashtag #tumarca</div>
+  </div>
+  <div class="ftr"><span>@funnelslabs</span><span>06</span></div>
+</section>
+
+<section class="page" style="background:var(--ink);color:#fff">
+  <div class="hdr" style="color:#8a8a82"><b style="color:#fff"><i></i>Funnels Labs</b><span>Siguiente paso</span></div>
+  <div style="margin:auto 0">
+    <h1 style="color:#fff;font-size:38pt">Crear el carrusel<br>es <span style="color:var(--lime)">la mitad.</span></h1>
+    <p style="color:#bdbdb5;font-size:12pt;margin-top:8mm;max-width:140mm">La otra mitad es lo que pasa cuando alguien comenta o te escribe: responderle rápido, entender qué necesita y llevarlo a una compra o a una cita.</p>
+    <p style="color:#bdbdb5;font-size:12pt;max-width:140mm">En Funnels Labs armamos el sistema completo: contenido que atrae, un embudo que filtra y WhatsApp que cierra, con un agente de IA que responde 24/7.</p>
+    <div style="display:inline-block;margin-top:10mm;background:var(--lime);color:var(--ink);font-weight:800;font-size:13pt;border-radius:99px;padding:4mm 8mm">Escríbenos “SISTEMA” en @funnelslabs</div>
+  </div>
+  <div class="ftr" style="border-color:#2a2a2a"><span>@funnelslabs</span><span>funnelslabs.app</span></div>
+</section>
+</body></html>

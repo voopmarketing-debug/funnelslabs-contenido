@@ -1,7 +1,5 @@
-8 ideas para que tus carruseles no se vean como todos los demás. 👀
+Tus carruseles se ven igual que los de todos. Aquí tienes 8 ideas para cambiarlo.
 
-Guárdalo para cuando no sepas qué publicar.
-
-👉 Comenta "CARRUSEL" y te enviamos el paso a paso para crearlos con IA.
+Guárdalo y comenta "CARRUSEL": te enviamos el paso a paso con el prompt de cada una.
 
 #emprendedoreslatam #marketingdigital #funnelslabs
