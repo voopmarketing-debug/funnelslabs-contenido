@@ -166,3 +166,24 @@ A mi derecha está SENTADO en el suelo mi personaje voxel de la hoja de personaj
 ESCALA: el personaje voxel tiene el mismo tamaño que una persona adulta, no es un muñeco. Los dos están apoyados con firmeza sobre el asfalto, con sombras de contacto suaves proyectadas en la misma dirección. Luz natural de día, directa y suave.
 
 Composición: los dos ocupan la parte inferior y central de la imagen. Deja la parte superior (un tercio) de asfalto liso, sin objetos, para escribir un título. No escribas ningún texto ni logos. Una sola imagen.
+
+---
+
+# Find skills · slide 2: sentados en el bordillo con un tazón (pose del original, fondo propio)
+
+Adjuntar: hoja de personaje + foto de la poltrona (rostro). No adjuntar la foto original (evita heredar su fondo y su cara).
+Texto del slide: etiqueta FIND SKILLS · título "Ella busca" (blanco) + "todas las demás." (lima) · apoyo "Cuéntale qué necesitas y te la encuentra."
+
+Crea una foto de moda urbana, vertical 4:5, alta resolución, tomada con un lente gran angular desde una altura baja (a la altura de las rodillas), con una ligera deformación de lente.
+
+Yo (la persona real de la foto de la poltrona, con mi rostro, barba y complexión exactos) estoy SENTADO en el bordillo de una acera, con las rodillas dobladas. Llevo unas gafas de sol negras de montura wayfarer COMPLETAMENTE puestas, con lentes totalmente negros, sin que se vean mis ojos. Tengo el cabello corto, completo y parejo, con la línea del cabello natural. Visto mi traje verde azulado de dos piezas con camiseta blanca, tenis blancos y reloj. Con una mano sostengo un tazón de ramen humeante con huevo y con la otra levanto unos palillos con fideos, mirando a la cámara con media sonrisa.
+
+A mi izquierda está SENTADO igual en el bordillo mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de bloques con barba corta, chaqueta de cierre verde azulado, camiseta blanca, pantalón verde azulado, tenis blancos con talón rojo y reloj plateado. NO lleva gafas. Sostiene con una mano de bloques (puño con dedos marcados) un tazón de arroz con tempura y con la otra unos palillos, inclinado un poco hacia la cámara y mirando al frente.
+
+ESCALA: el personaje voxel tiene el mismo tamaño que yo, como una persona adulta. Los dos están apoyados con firmeza en el bordillo, con sombras de contacto naturales y la misma luz de atardecer cálida sobre los dos.
+
+Fondo (distinto al de cualquier referencia): una calle moderna de ciudad con edificios de ladrillo claro, un café con grandes ventanales y plantas en la fachada, una bicicleta apoyada, un semáforo a lo lejos y la luz dorada de la tarde. El bordillo es de concreto gris. El fondo está ligeramente desenfocado, y el tercio superior de la imagen es más tranquilo y un poco más oscuro, sin carteles ni texto, para escribir un título.
+
+No escribas ningún texto ni logos. Una sola imagen.
+
+Pendiente: slide de "caminando" (imagen escena-caminando-fondo-negro.jpg): cambiar fondo cuando llegue la referencia.
