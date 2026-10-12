@@ -33,6 +33,8 @@ def load_bg(n,c,w,h):
         yy=np.linspace(0,1,h)[:,None,None]; k=np.clip((yy-0.78)/0.22,0,1)**1.3
         im=im*(1-0.78*k)+np.array([14,12,10],np.float32)*0.78*k
     return im
+# zonas de sombra legítima (entre los muslos, bajo el asiento): se mantienen, no son huecos de fondo
+PROTECT={'silla-lado':[(280,790,480,935)],'abrazo':[(370,730,560,935)],'modelo':[(270,820,380,870)]}
 def cut(c):
     a=np.array(Image.open(f'bg/cut-{c["ch"]}.png'))
     src=cv2.imread(f'img/{c["ch"]}.png').astype(np.float32)
@@ -42,6 +44,18 @@ def cut(c):
     for i in range(1,n):
         if st[i,4]>2500: keep[lab==i]=1
     shape=keep
+    # huecos de fondo negro entre brazos, piernas y sillón: se quitan para que se vea la foto de fondo
+    m=cv2.GaussianBlur(src.max(2),(0,0),1.0)
+    dark=((m<3.5)&(shape>0)).astype(np.uint8)
+    n,lab,st,cen=cv2.connectedComponentsWithStats(dark)
+    pk=np.zeros_like(shape)
+    for i in range(1,n):
+        if st[i,4]<600: continue
+        cx,cy=cen[i]
+        if any(x0<=cx<=x1 and y0<=cy<=y1 for x0,y0,x1,y1 in PROTECT.get(c['ch'],[])): continue
+        if cy<st[i,1]+0 : continue
+        pk[lab==i]=1
+    shape=(shape&(1-cv2.dilate(pk,np.ones((5,5),np.uint8)))).astype(np.uint8)
     d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3); d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
     # el borde lo decide la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
     key=cv2.GaussianBlur(np.clip((src.max(2)-5)/13,0,1),(0,0),0.7)
