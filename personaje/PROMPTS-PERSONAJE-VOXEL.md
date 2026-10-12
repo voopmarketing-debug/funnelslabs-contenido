@@ -65,3 +65,29 @@ Agrega a mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de
 5. (Cierre) POSE: el personaje voxel está sentado en el apoyabrazos de la poltrona y choca el puño conmigo. Yo me inclino un poco hacia él, con las gafas puestas.
 
 Nota: ambos visten el mismo traje verde azulado (efecto "gemelo digital"). Para diferenciarlos, cambiar la ropa del personaje voxel.
+
+---
+
+# Versión 2 (corregida): fondo uniforme, manos con puños, luz y sombras. Formato 4:5
+
+Aprendizajes de la escena 1: corte horizontal en el fondo, manos como bloques lisos, personaje centrado sobre la cabeza (efecto tótem), sin sombras proyectadas.
+Adjuntar en cada pedido: hoja de personaje + foto de la silla. Pegar el bloque base y debajo UNA pose.
+
+## Bloque base v2
+
+Recrea la foto de la poltrona verde azulado: mantén exactamente mi rostro, mi traje verde azulado, la camiseta blanca, los tenis blancos, el reloj y la poltrona. Ponme unas gafas de sol negras de montura wayfarer, con lentes completamente negros sin reflejos, sin cambiar mi barba ni mi expresión.
+
+Agrega a mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de bloques con barba corta, chaqueta de cierre verde azulado, camiseta blanca, pantalón verde azulado, tenis blancos con talón rojo y reloj plateado en la muñeca izquierda. El personaje voxel NO lleva gafas. Sus manos son puños hechos de bloques con los dedos marcados, nunca bloques lisos sueltos. Su cuerpo tiene proporciones completas y está apoyado de forma natural.
+
+Integración: la misma iluminación de estudio sobre los dos, con sombras suaves del personaje sobre la poltrona y sobre mí, y sombra de contacto donde se apoya.
+
+Fondo y formato: fondo negro liso y UNIFORME, sin degradados, sin franjas, sin marcos ni bordes, sin viñeta. Formato vertical 4:5, alta resolución. Deja libre el tercio superior de la imagen para un logo. No dibujes la cuadrícula, no escribas ningún texto ni logos. Una sola imagen.
+
+## Poses
+2. Abrazo: POSE: el personaje voxel está de pie detrás de la poltrona, ligeramente inclinado hacia mí, y me abraza por detrás: sus dos brazos rodean mis hombros y sus puños de bloques descansan sobre mi pecho. Su cabeza queda junto a la mía, ladeada, con una leve sonrisa. Yo sigo sentado, con las gafas puestas y mirando a la cámara.
+3. Equipo: POSE: el personaje voxel está de pie a mi lado derecho, con un brazo sobre mi hombro y el otro relajado, como compañeros de equipo. Su cuerpo se inclina un poco hacia mí y mira a la cámara con una leve sonrisa. Se ve completo, de cuerpo entero, con los tenis tocando el piso. Yo sigo sentado en la poltrona, con las gafas puestas.
+4. Señalando: POSE: el personaje voxel está de pie detrás de la poltrona, ladeado hacia la izquierda de la imagen, señalando hacia arriba con la mano derecha, con el dedo índice marcado en bloques, y con la otra mano apoyada en el respaldo. Mira hacia la cámara con una sonrisa. Yo sigo sentado, con las gafas puestas y mirando a la cámara.
+5. Puño (cierre): POSE: el personaje voxel está sentado en el apoyabrazos derecho de la poltrona y choca su puño de bloques con el mío. Yo me inclino un poco hacia él, con el puño extendido y las gafas puestas. Ambos sonríen y se ve el choque de puños en el centro de la imagen.
+
+## Ajuste para la portada ya generada (escena 1)
+Corrige la imagen: mantén todo igual, pero inclina el cuerpo del personaje voxel un poco hacia mi derecha, con la cabeza ligeramente ladeada hacia mí. Sus manos deben ser puños de bloques con los dedos marcados, apoyadas sobre los bordes superiores del respaldo. Añade la sombra que su cuerpo proyecta sobre el respaldo y sobre mis hombros, y la misma iluminación de estudio que tengo yo. No cambies mi rostro, mis gafas ni mi ropa.
