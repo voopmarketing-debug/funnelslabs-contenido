@@ -40,15 +40,23 @@ def load_bg(n,c):
     return im
 def cut(c):
     a=np.array(Image.open(f'bg/cut-{c["ch"]}.png'))
-    rgb=a[...,2::-1].astype(np.float32); al=a[...,3].astype(np.float32)/255
-    al=np.clip((al-.25)/.6,0,1)                        # quita velos débiles
-    al=cv2.erode(al,np.ones((3,3),np.uint8))
-    n,lab,st,_=cv2.connectedComponentsWithStats((al>.3).astype(np.uint8))
-    keep=np.zeros_like(al)
+    src=cv2.imread(f'img/{c["ch"]}.png').astype(np.float32)
+    shape=(a[...,3]>128).astype(np.uint8)
+    n,lab,st,_=cv2.connectedComponentsWithStats(shape)
+    keep=np.zeros_like(shape)
     for i in range(1,n):
         if st[i,4]>2500: keep[lab==i]=1
-    al=cv2.GaussianBlur(al*cv2.dilate(keep,np.ones((5,5),np.uint8)),(0,0),0.8)
-    return rgb,al
+    shape=keep
+    d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3)
+    d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
+    # el borde lo decide la luminosidad de la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
+    key=np.clip((src.max(2)-5)/13,0,1)
+    key=cv2.GaussianBlur(key,(0,0),0.7)
+    band=np.where(d_in>6,1.0,np.where(d_out<11,key,0.0))
+    al=cv2.GaussianBlur(band.astype(np.float32),(0,0),0.6)
+    # quita el negro mezclado en el borde del pelo y la ropa
+    rgb=np.where((al<0.98)[...,None],src/np.clip(al,0.65,1)[...,None],src)
+    return np.clip(rgb,0,255),al
 def place(rgb,al,c):
     ys,xs=np.where(al>.5); ymin,ymax,xmin,xmax=ys.min(),ys.max(),xs.min(),xs.max()
     if 'ytop' in c:
