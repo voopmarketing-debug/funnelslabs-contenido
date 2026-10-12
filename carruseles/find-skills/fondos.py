@@ -35,6 +35,7 @@ def load_bg(n,c,w,h):
     return im
 # huecos de fondo que sí se quitan (centro aprox. en la foto original); el resto del negro es sombra de la ropa o del sillón y se conserva
 REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}
+REMOVE={'caminando':[(283,906)]}   # huecos de fondo concretos entre las patas del voxel
 EXTRA={'abrazo','silla-lado'}   # solo donde rembg pierde partes oscuras (patas del sillón); en las demás crea un halo negro
 PATCH={'caminando':[[(655,830),(738,830),(728,885),(700,935),(648,935),(660,885)]]}   # pierna de atrás
 def cut(c):
@@ -60,6 +61,11 @@ def cut(c):
     pk=np.zeros_like(shape)
     for i in range(1,n2):
         if st2[i,4]>=700: pk[lab2==i]=1
+    z=((m<2.0)&(full>0)).astype(np.uint8)
+    n4,lab4,st4,cen4=cv2.connectedComponentsWithStats(z)
+    for i in range(1,n4):
+        cx,cy=cen4[i]
+        if any(abs(cx-x)<60 and abs(cy-y)<60 for x,y in REMOVE.get(c['ch'],[])): pk[lab4==i]=1
     full=(full&(1-cv2.dilate(pk,np.ones((5,5),np.uint8)))).astype(np.uint8)
     for poly in PATCH.get(c['ch'],[]):          # partes casi negras que ni la foto ni el recorte distinguen del fondo
         cv2.fillPoly(full,[np.array(poly,np.int32)],1)
@@ -76,7 +82,11 @@ def cut(c):
     band=np.where(d_in>6,1.0,np.where(d_out<6,key,0.0))
     al=cv2.GaussianBlur(band.astype(np.float32),(0,0),0.6)
     rgb=np.where((al<0.98)[...,None],src/np.clip(al,0.65,1)[...,None],src)
-    return np.clip(rgb,0,255),al
+    ring=(((d_in<4)|(shape==0))&(al>0.003)).astype(np.uint8)
+    ring=cv2.dilate(ring,np.ones((3,3),np.uint8))
+    rgb8=np.clip(rgb,0,255).astype(np.uint8)
+    rgb8=cv2.inpaint(rgb8,ring*255,3,cv2.INPAINT_TELEA)
+    return rgb8.astype(np.float32),al
 def place(rgb,al,c):
     ys,xs=np.where(al>.5); ymin,ymax,xmin,xmax=ys.min(),ys.max(),xs.min(),xs.max()
     s=(FEET-c['ytop'])/(ymax-ymin); top=int(c['ytop']-ymin*s); left=int(W/2-(xmin+xmax)/2*s)
