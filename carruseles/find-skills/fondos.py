@@ -35,9 +35,9 @@ def load_bg(n,c,w,h):
     return im
 # huecos de fondo que sí se quitan (centro aprox. en la foto original); el resto del negro es sombra de la ropa o del sillón y se conserva
 REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}
-REMOVE={'caminando':[(283,906)]}   # huecos de fondo concretos entre las patas del voxel
+REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}   # huecos de fondo concretos (brazo-sillón, entre piernas...)
 EXTRA={'abrazo','silla-lado'}   # solo donde rembg pierde partes oscuras (patas del sillón); en las demás crea un halo negro
-PATCH={'caminando':[[(655,830),(738,830),(728,885),(700,935),(648,935),(660,885)]]}   # pierna de atrás
+PATCH={'caminando':[[(656,830),(724,830),(722,860),(715,895),(704,925),(696,950),(650,950),(654,900),(657,860)]]}   # pierna de atrás
 def cut(c):
     a=np.array(Image.open(f'bg/cut-{c["ch"]}.png'))
     src=cv2.imread(f'img/{c["ch"]}.png').astype(np.float32)
@@ -54,18 +54,13 @@ def cut(c):
     extra=((m>=3.0)&(near>0)&(c['ch'] in EXTRA)).astype(np.uint8)
     extra=cv2.morphologyEx(extra,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9)))
     full=(shape|extra).astype(np.uint8)
-    # huecos de fondo negro exacto dentro de la silueta
-    hole=((m<2.0)&(full>0)).astype(np.uint8)
-    hole=cv2.morphologyEx(hole,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(19,19)))   # solo huecos anchos; las ranuras finas son sombra
-    n2,lab2,st2,_=cv2.connectedComponentsWithStats(hole)
+    # huecos de fondo (negro exacto) que se quitan; el resto del negro es ropa en sombra y se conserva
     pk=np.zeros_like(shape)
-    for i in range(1,n2):
-        if st2[i,4]>=700: pk[lab2==i]=1
     z=((m<2.0)&(full>0)).astype(np.uint8)
     n4,lab4,st4,cen4=cv2.connectedComponentsWithStats(z)
     for i in range(1,n4):
         cx,cy=cen4[i]
-        if any(abs(cx-x)<60 and abs(cy-y)<60 for x,y in REMOVE.get(c['ch'],[])): pk[lab4==i]=1
+        if st4[i,4]>=300 and any(abs(cx-x)<60 and abs(cy-y)<60 for x,y in REMOVE.get(c['ch'],[])): pk[lab4==i]=1
     full=(full&(1-cv2.dilate(pk,np.ones((5,5),np.uint8)))).astype(np.uint8)
     for poly in PATCH.get(c['ch'],[]):          # partes casi negras que ni la foto ni el recorte distinguen del fondo
         cv2.fillPoly(full,[np.array(poly,np.int32)],1)
