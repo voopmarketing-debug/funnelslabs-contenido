@@ -35,6 +35,7 @@ def load_bg(n,c,w,h):
     return im
 # huecos de fondo que sí se quitan (centro aprox. en la foto original); el resto del negro es sombra de la ropa o del sillón y se conserva
 REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}
+EXTRA={'abrazo','silla-lado'}   # solo donde rembg pierde partes oscuras (patas del sillón); en las demás crea un halo negro
 PATCH={'caminando':[[(655,830),(738,830),(728,885),(700,935),(648,935),(660,885)]]}   # pierna de atrás
 def cut(c):
     a=np.array(Image.open(f'bg/cut-{c["ch"]}.png'))
@@ -49,7 +50,7 @@ def cut(c):
     # El fondo real es negro exacto (0), así que los huecos de verdad siguen siendo huecos.
     m=cv2.GaussianBlur(src.max(2),(0,0),0.8)
     near=cv2.dilate(shape,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(61,61)))
-    extra=((m>=3.0)&(near>0)).astype(np.uint8)
+    extra=((m>=3.0)&(near>0)&(c['ch'] in EXTRA)).astype(np.uint8)
     extra=cv2.morphologyEx(extra,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9)))
     full=(shape|extra).astype(np.uint8)
     # huecos de fondo negro exacto dentro de la silueta
@@ -62,14 +63,17 @@ def cut(c):
     full=(full&(1-cv2.dilate(pk,np.ones((5,5),np.uint8)))).astype(np.uint8)
     for poly in PATCH.get(c['ch'],[]):          # partes casi negras que ni la foto ni el recorte distinguen del fondo
         cv2.fillPoly(full,[np.array(poly,np.int32)],1)
+        pm=np.zeros(full.shape,np.float32); cv2.fillPoly(pm,[np.array(poly,np.int32)],1.0)
+        pm=cv2.GaussianBlur(pm,(0,0),7)[...,None]*(full[...,None]>0)       # lleva el negro de la sombra al verde oscuro de la tela, con borde suave
+        src=src+pm*np.maximum(0,np.array([46,44,6],np.float32)-src)
     n3,lab3,st3,_=cv2.connectedComponentsWithStats(full)
     shape=np.zeros_like(full)
     for i in range(1,n3):
         if st3[i,4]>2500: shape[lab3==i]=1
     d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3); d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
     # el borde lo decide la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
-    key=cv2.GaussianBlur(np.clip((src.max(2)-2)/8,0,1),(0,0),0.6)
-    band=np.where(d_in>6,1.0,np.where(d_out<11,key,0.0))
+    key=cv2.GaussianBlur(np.clip((src.max(2)-7)/16,0,1),(0,0),0.6)
+    band=np.where(d_in>6,1.0,np.where(d_out<6,key,0.0))
     al=cv2.GaussianBlur(band.astype(np.float32),(0,0),0.6)
     rgb=np.where((al<0.98)[...,None],src/np.clip(al,0.65,1)[...,None],src)
     return np.clip(rgb,0,255),al
