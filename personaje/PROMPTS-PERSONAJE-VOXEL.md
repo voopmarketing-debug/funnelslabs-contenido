@@ -187,3 +187,23 @@ Fondo (distinto al de cualquier referencia): una calle moderna de ciudad con edi
 No escribas ningún texto ni logos. Una sola imagen.
 
 Pendiente: slide de "caminando" (imagen escena-caminando-fondo-negro.jpg): cambiar fondo cuando llegue la referencia.
+
+---
+
+# Find skills: cambiar el fondo a urbano (una imagen por pedido; adjuntar la imagen del slide)
+
+## Bloque base
+Cambia SOLO el fondo de esta imagen. Mantén exactamente igual a las dos personas (la persona real y el personaje voxel): sus rostros, gafas, ropa, pose, tamaño, posición y encuadre. No muevas ni redibujes a ninguno.
+
+Integra a los dos en la nueva escena como si hubieran sido fotografiados ahí: la misma luz de la escena sobre ellos, sombras de contacto naturales en el piso, reflejos suaves, sin halos ni bordes recortados. Si hay una poltrona, mantenla igual. Fondo ligeramente desenfocado, foto realista de moda urbana, luz dorada de media tarde. Deja el tercio superior de la imagen más tranquilo y un poco más oscuro, sin carteles ni texto, para escribir un título. Sin texto ni logos. Alta resolución, mismo formato vertical.
+
+## Escenas
+- Slide 1 (brazos cruzados): ESCENA: una esquina de ciudad con edificios de ladrillo claro, un café con grandes ventanales y plantas, y una bicicleta apoyada en la pared.
+- Slide 2 (poltrona con el voxel): ESCENA: una acera de ciudad frente a un muro de ladrillo con grafiti discreto, con la poltrona colocada sobre el pavimento.
+- Slide 3 (teléfono): ESCENA: la terraza de un café en una calle peatonal con adoquines, mesas pequeñas de metal y plantas.
+- Slide 4 (asfalto): ya es urbano, se mantiene.
+- Slide 5 (caminando): ESCENA: una calle de ciudad con un paso de cebra y edificios altos al fondo, los dos caminando por la acera.
+- Slide 6 (modelo): ESCENA: una plaza urbana con muros de concreto, escaleras y una rampa de patinaje al fondo, con la poltrona sobre el piso.
+- Slide 7 (abrazo): ESCENA: un callejón de ladrillo con luces cálidas de bar y charcos que reflejan la luz, con la poltrona en el centro.
+
+Corrección: "las personas deben ser idénticas a la imagen adjunta, corrige solo el fondo".
