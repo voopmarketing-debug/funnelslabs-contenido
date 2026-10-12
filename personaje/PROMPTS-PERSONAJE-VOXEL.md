@@ -149,3 +149,20 @@ F. Contestando un chat: POSE: sin poltrona. El personaje voxel y yo estamos DE P
 Correcciones:
 - "El teléfono del personaje voxel debe ser un objeto de bloques con pantalla pixelada, no un smartphone realista."
 - Si el texto de la pantalla sale deformado: pedir burbujas vacías y poner el texto después en el diseño.
+
+---
+
+# Escena cenital sobre asfalto (para el carrusel "find skills")
+
+Adjuntar: hoja de personaje + foto de la silla (rostro) + imagen de los dos con brazos cruzados (escala).
+Por qué cenital: el original usa una foto desde arriba; pegar asfalto detrás de una foto frontal se vería falso.
+
+Crea una foto cenital (tomada desde arriba, mirando hacia el suelo), vertical 4:5, alta resolución, estilo fotografía de moda urbana.
+
+Yo (la persona real de la foto de la poltrona, con mi rostro, barba y complexión exactos) estoy DE PIE sobre asfalto gris oscuro con textura realista de grano, pequeñas grietas y líneas viales blancas pintadas en diagonal. Miro hacia arriba, a la cámara, con una mano sosteniendo mis gafas de sol negras de montura wayfarer, como si me las acabara de bajar. Visto mi traje verde azulado de dos piezas con camiseta blanca, tenis blancos y reloj.
+
+A mi derecha está SENTADO en el suelo mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de bloques con barba corta, chaqueta de cierre verde azulado, camiseta blanca, pantalón verde azulado, tenis blancos con talón rojo y reloj plateado. Está recostado hacia atrás apoyándose en sus manos de bloques con los dedos marcados, con las piernas estiradas, y también mira hacia arriba, a la cámara. NO lleva gafas.
+
+ESCALA: el personaje voxel tiene el mismo tamaño que una persona adulta, no es un muñeco. Los dos están apoyados con firmeza sobre el asfalto, con sombras de contacto suaves proyectadas en la misma dirección. Luz natural de día, directa y suave.
+
+Composición: los dos ocupan la parte inferior y central de la imagen. Deja la parte superior (un tercio) de asfalto liso, sin objetos, para escribir un título. No escribas ningún texto ni logos. Una sola imagen.
