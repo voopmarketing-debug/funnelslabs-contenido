@@ -16,7 +16,7 @@ CFG={
 }
 def load_bg(n,c,w,h):
     im=cv2.imread(f'bg/orig-{n}.jpg'); hh,ww=im.shape[:2]
-    im=im[4:hh-14,16:ww-4]                       # quita el margen de la captura
+    im=im[6:hh-16,18:ww-18]                       # quita el margen de la captura
     if c.get('billboard'):                       # tapa el cartel blanco
         sub=(im[420:900,480:800].min(2)>225).astype(np.uint8)
         sub=cv2.dilate(sub,np.ones((21,21),np.uint8)).astype(bool)
