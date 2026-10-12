@@ -33,8 +33,9 @@ def load_bg(n,c,w,h):
         yy=np.linspace(0,1,h)[:,None,None]; k=np.clip((yy-0.78)/0.22,0,1)**1.3
         im=im*(1-0.78*k)+np.array([14,12,10],np.float32)*0.78*k
     return im
-# zonas de sombra legítima (entre los muslos, bajo el asiento): se mantienen, no son huecos de fondo
-PROTECT={'caminando':[(560,650,780,1100),(200,800,380,1100)],'silla-lado':[(280,790,480,935)],'abrazo':[(370,730,560,935)],'modelo':[(270,820,380,870)]}
+# huecos de fondo que sí se quitan (centro aprox. en la foto original); el resto del negro es sombra de la ropa o del sillón y se conserva
+REMOVE={'silla-lado':[(565,634),(565,927),(699,937)],'caminando':[(734,530)],'modelo':[(713,466)],'abrazo':[(613,518),(314,537)]}
+PATCH={'caminando':[[(655,830),(738,830),(728,885),(700,935),(648,935),(660,885)]]}   # pierna de atrás
 def cut(c):
     a=np.array(Image.open(f'bg/cut-{c["ch"]}.png'))
     src=cv2.imread(f'img/{c["ch"]}.png').astype(np.float32)
@@ -44,19 +45,27 @@ def cut(c):
     for i in range(1,n):
         if st[i,4]>2500: keep[lab==i]=1
     shape=keep
-    # huecos de fondo negro entre brazos, piernas y sillón: se quitan para que se vea la foto de fondo
-    # fondo real = negro exacto (0); la ropa en sombra nunca llega a 0 de forma continua
-    dark=((src.max(2)<=1.5)&(shape>0)).astype(np.uint8)
-    dark=cv2.morphologyEx(dark,cv2.MORPH_OPEN,np.ones((3,3),np.uint8))
-    n,lab,st,cen=cv2.connectedComponentsWithStats(dark)
+    # rembg pierde la ropa muy oscura (pierna de atrás, patas del sillón): se recupera con la foto original.
+    # El fondo real es negro exacto (0), así que los huecos de verdad siguen siendo huecos.
+    m=cv2.GaussianBlur(src.max(2),(0,0),0.8)
+    near=cv2.dilate(shape,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(61,61)))
+    extra=((m>=3.0)&(near>0)).astype(np.uint8)
+    extra=cv2.morphologyEx(extra,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9)))
+    full=(shape|extra).astype(np.uint8)
+    # huecos de fondo negro exacto dentro de la silueta
+    hole=((m<2.0)&(full>0)).astype(np.uint8)
+    hole=cv2.morphologyEx(hole,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(19,19)))   # solo huecos anchos; las ranuras finas son sombra
+    n2,lab2,st2,_=cv2.connectedComponentsWithStats(hole)
     pk=np.zeros_like(shape)
-    for i in range(1,n):
-        if st[i,4]<600: continue
-        cx,cy=cen[i]
-        if any(x0<=cx<=x1 and y0<=cy<=y1 for x0,y0,x1,y1 in PROTECT.get(c['ch'],[])): continue
-        if cy<st[i,1]+0 : continue
-        pk[lab==i]=1
-    shape=(shape&(1-cv2.dilate(pk,np.ones((3,3),np.uint8)))).astype(np.uint8)
+    for i in range(1,n2):
+        if st2[i,4]>=700: pk[lab2==i]=1
+    full=(full&(1-cv2.dilate(pk,np.ones((5,5),np.uint8)))).astype(np.uint8)
+    for poly in PATCH.get(c['ch'],[]):          # partes casi negras que ni la foto ni el recorte distinguen del fondo
+        cv2.fillPoly(full,[np.array(poly,np.int32)],1)
+    n3,lab3,st3,_=cv2.connectedComponentsWithStats(full)
+    shape=np.zeros_like(full)
+    for i in range(1,n3):
+        if st3[i,4]>2500: shape[lab3==i]=1
     d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3); d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
     # el borde lo decide la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
     key=cv2.GaussianBlur(np.clip((src.max(2)-2)/8,0,1),(0,0),0.6)
