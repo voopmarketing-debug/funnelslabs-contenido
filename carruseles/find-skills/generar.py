@@ -49,9 +49,11 @@ S.append(f'''<section class="slide">{BG(5)}{head(5,'Instálala con','un solo com
 <div class="code">npx skills add vercel-labs/skills --skill find-skills -a claude-code -g -y</div>
 <div class="note">Pégalo en tu terminal. Queda disponible en todos tus proyectos.</div>
 <div class="ph2" style="margin-top:8px;padding-bottom:2px">3 formas de buscar</div>
-{row('chat','En Claude','Pídeselo como hablas.')}
-{row('term','En la terminal','<code>npx skills find [palabra]</code>')}
-{row('web','En la web','skills.sh: las más usadas y las nuevas.',True)}
+<div class="cols">
+<div>{ic('chat')}<b>En Claude</b><span>Pídeselo como hablas.</span></div>
+<div>{ic('term')}<b>En la terminal</b><span><code>npx skills find [palabra]</code></span></div>
+<div>{ic('web')}<b>En la web</b><span>skills.sh: las más usadas y las nuevas.</span></div>
+</div>
 </div>{foot}</section>''')
 # 6 hazla tuya
 S.append(f'''<section class="slide">{BG(6)}{head(6,'Hazla tuya,','con tus reglas.',None,88)}
@@ -81,9 +83,10 @@ body{background:#333;font-family:"Montserrat",Arial,sans-serif;display:flex;flex
 .sub{position:absolute;z-index:5;left:64px;right:64px;top:318px;font-weight:600;font-size:31px;line-height:1.3;color:#ececE6;letter-spacing:-0.01em;text-shadow:0 2px 18px rgba(0,0,0,.6)}
 .sub b{color:#fff;font-weight:800}
 .panel{position:absolute;z-index:5;left:40px;right:40px;border-radius:34px;padding:12px 34px;background:linear-gradient(180deg,rgba(12,12,12,.58),rgba(12,12,12,.46));border:1.5px solid rgba(255,255,255,.24);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
-.row{display:flex;gap:24px;align-items:center;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.row{display:flex;gap:24px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2)}
 .row.last{border-bottom:0}
 .cmp .row{padding:10px 0}.cmp .note{padding-bottom:10px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:4px 0 14px}.cols>div{display:flex;flex-direction:column;gap:6px}.cols svg{width:44px;height:44px;color:#fff;margin-bottom:2px}.cols b{font-weight:800;font-size:27px;letter-spacing:-0.02em}.cols span{font-weight:500;font-size:21px;line-height:1.3;color:#dcdcd5}.cols code{font-family:"Courier New",monospace;font-weight:700;font-size:19px;word-break:break-all}
 .row .ic{flex:none;width:58px;height:58px;color:#fff;display:flex;align-items:center;justify-content:center}.row .ic svg{width:50px;height:50px}
 .row b{display:block;font-weight:800;font-size:30px;letter-spacing:-0.02em;line-height:1.15}
 .row span{display:block;font-weight:500;font-size:23px;line-height:1.3;color:#dcdcd5;margin-top:3px}

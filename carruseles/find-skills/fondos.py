@@ -5,12 +5,14 @@ from PIL import Image
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 W,H=1080,1350
 # slide: (fondo, personaje, y0 del recorte original, ancho, top, dx, ajustes del fondo)
+PT={2:626,3:706,5:657,6:626}  # y de la cabeza = borde inferior del panel + 16
+FEET=1335
 CFG={
- 1:dict(bg=1,ch='brazos',   y0=194,w=860,top=404,dx=0, shift=0.0,bright=.92),
- 2:dict(bg=2,ch='silla-lado',y0=232,w=628,top=662,dx=0,shift=1.0,bright=.90),
- 3:dict(bg=3,ch='chat',     y0=172,w=545,top=720,dx=0, shift=1.0,bright=.95),
- 5:dict(bg=4,ch='caminando',y0=227,w=554,top=744,dx=0, shift=1.0,bright=.85,billboard=True),
- 6:dict(bg=5,ch='modelo',   y0=171,w=585,top=690,dx=0, shift=1.0,bright=.95),
+ 1:dict(bg=1,ch='brazos',   w=860,top=404,y0=194,dx=0, shift=0.0,bright=.92),
+ 2:dict(bg=2,ch='silla-lado',ytop=PT[2],dx=0,shift=1.0,bright=.90),
+ 3:dict(bg=3,ch='chat',     ytop=PT[3],dx=0, shift=1.0,bright=.95),
+ 5:dict(bg=4,ch='caminando',ytop=PT[5],dx=0, shift=1.0,bright=.85,billboard=True),
+ 6:dict(bg=5,ch='modelo',   ytop=PT[6],dx=0, shift=1.0,bright=.95),
  7:dict(bg=6,ch='abrazo',   y0=72, w=744,top=430,dx=0, shift=0.0,bright=1.0,floor=True),
 }
 def load_bg(n,c):
@@ -48,13 +50,17 @@ def cut(c):
     al=cv2.GaussianBlur(al*cv2.dilate(keep,np.ones((5,5),np.uint8)),(0,0),0.8)
     return rgb,al
 def place(rgb,al,c):
-    s=c['w']/rgb.shape[1]
+    ys,xs=np.where(al>.5); ymin,ymax,xmin,xmax=ys.min(),ys.max(),xs.min(),xs.max()
+    if 'ytop' in c:
+        s=(FEET-c['ytop'])/(ymax-ymin); top=int(c['ytop']-ymin*s); left=int(W/2+c['dx']-(xmin+xmax)/2*s)
+    else:
+        s=c['w']/rgb.shape[1]; left=(W-c['w'])//2+c['dx']; top=int(c['top']-c['y0']*s)
     nw,nh=int(rgb.shape[1]*s),int(rgb.shape[0]*s)
-    rgb=cv2.resize(rgb,(nw,nh),interpolation=cv2.INTER_AREA); al=cv2.resize(al,(nw,nh),interpolation=cv2.INTER_AREA)
-    left=(W-c['w'])//2+c['dx']; top=int(c['top']-c['y0']*s)
+    rgb=cv2.resize(rgb,(nw,nh),interpolation=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC); al=cv2.resize(al,(nw,nh),interpolation=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC)
     R=np.zeros((H,W,3),np.float32); A=np.zeros((H,W),np.float32)
     ys0,xs0=max(top,0),max(left,0); ys1,xs1=min(top+nh,H),min(left+nw,W)
     R[ys0:ys1,xs0:xs1]=rgb[ys0-top:ys1-top,xs0-left:xs1-left]; A[ys0:ys1,xs0:xs1]=al[ys0-top:ys1-top,xs0-left:xs1-left]
+    print(c['ch'],'escala',round(s,2),'alto',round((ymax-ymin)*s))
     return R,A
 def shadow(A):
     ys,xs=np.where(A>.5); yb=ys.max(); h=110
@@ -64,7 +70,7 @@ def shadow(A):
     sh[y:y+sq.shape[0],:]=sq[:H-y]
     sh=cv2.GaussianBlur(sh,(0,0),11)
     wide=cv2.GaussianBlur(A[yb-30:yb+1].max(0,keepdims=True).repeat(40,0),(0,0),20)  # sombra ancha suave
-    big=np.zeros_like(A); big[yb-6:yb+34]=wide[:,:]
+    big=np.zeros_like(A); e=min(yb+34,H); big[yb-6:e]=wide[:e-(yb-6)]
     return np.clip(sh*1.1+big*.5,0,.7)
 for n,c in CFG.items():
     bg=load_bg(c['bg'],c); rgb,al=cut(c); R,A=place(rgb,al,c)
