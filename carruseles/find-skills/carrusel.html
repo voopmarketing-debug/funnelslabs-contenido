@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Find skills — Funnels Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#b5ff2b;--ink:#0a0a0a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#333;font-family:"Montserrat",Arial,sans-serif;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}
+.slide{position:relative;width:1080px;height:1350px;background:#000;overflow:hidden;color:#fff}
+.photo{position:absolute;left:70px;bottom:46px;width:940px;height:1168px;object-fit:cover;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 140px),linear-gradient(90deg,transparent 0,#000 60px,#000 calc(100% - 60px),transparent 100%);
+  -webkit-mask-composite:source-in;mask-composite:intersect;
+  mask-image:linear-gradient(180deg,transparent 0,#000 140px),linear-gradient(90deg,transparent 0,#000 60px,#000 calc(100% - 60px),transparent 100%)}
+.kick{position:absolute;left:64px;top:62px;font-weight:700;font-size:25px;letter-spacing:.3em;text-transform:uppercase;color:#d8d8d0;display:flex;align-items:center;gap:16px}
+.kick i{width:46px;height:3px;background:var(--lime);display:block}
+.h{position:absolute;left:64px;right:64px;top:112px;font-weight:900;letter-spacing:-0.045em;line-height:.98;font-size:92px}
+.h .l{color:var(--lime)}
+.sub{position:absolute;left:64px;right:64px;top:318px;font-weight:600;font-size:31px;line-height:1.3;color:#e8e8e2;letter-spacing:-0.01em}
+.sub b{color:#fff;font-weight:800}
+.foot{position:absolute;left:64px;right:64px;bottom:40px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:20px;letter-spacing:.18em;text-transform:uppercase;color:#d8d8d0;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.go{display:flex;align-items:center;gap:14px;color:#fff}.go s{width:50px;height:2px;background:#fff;position:relative}.go s::after{content:"";position:absolute;right:0;top:-5px;width:10px;height:10px;border-top:2px solid #fff;border-right:2px solid #fff;transform:rotate(45deg)}
+</style></head><body>
+
+<section class="slide">
+  <img class="photo" src="img/personajes-brazos.jpg">
+  <div class="kick"><i></i>Find skills</div>
+  <div class="h">Tu Claude necesita<br><span class="l">esta skill primero.</span></div>
+  <div class="sub">La #1 de skills.sh, con <b>más de 3 millones</b> de instalaciones.</div>
+  <div class="foot"><span>Funnels Labs · @funnelslabs</span><span class="go">Desliza<s></s></span></div>
+</section>
+
+</body></html>
