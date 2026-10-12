@@ -1,13 +1,5 @@
 import cv2, os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-# recortes: (archivo, y0 = fila donde empieza el contenido - margen)
-CROP={'brazos':194,'silla-lado':232,'chat':172,'caminando':227,'modelo':171,'abrazo':72}
-import numpy as np
-for n,y0 in CROP.items():
-    im=cv2.imread(f'img/{n}.png')[y0:].astype(np.float32)
-    m=np.clip((im.max(2)-8)/18,0,1)[...,None]
-    cv2.imwrite(f'img/{n}-c.png',np.clip(im*m,0,255).astype(np.uint8))
-
 ICON={
 'book':'<path d="M4 5.5c3-1.4 5.7-1.2 8 .6 2.3-1.8 5-2 8-.6v13c-3-1.4-5.7-1.2-8 .6-2.3-1.8-5-2-8-.6z"/><path d="M12 6.1v13"/>',
 'search':'<circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/>',
@@ -25,6 +17,7 @@ def row(k,t,d,last=False): return f'<div class="row{" last" if last else ""}"><s
 
 def photo(n,W,T,dx=0,extra=''):
     return f'<div class="ph" style="width:{W}px;top:{T}px;left:{(1080-W)//2+dx}px;{extra}"><img src="img/{n}-c.png"></div>'
+def BG(n): return f'<img class="bleed" src="img/f{n}.jpg"><div class="shade"></div>'
 def head(i,l1,l2,sub=None,size=88):
     s=f'<div class="n">{i}/7</div><div class="kick"><i></i>Find skills</div><div class="h" style="font-size:{size}px">{l1}<br><span class="l">{l2}</span></div>'
     if sub: s+=f'<div class="sub">{sub}</div>'
@@ -33,16 +26,16 @@ foot='<div class="foot"><span>@funnelslabs</span></div>'
 
 S=[]
 # 1 portada
-S.append(f'''<section class="slide">{photo('brazos',860,404)}{head(1,'Instala una sola skill.','Que sea esta.','La más instalada de skills.sh: <b>más de 3 millones</b> de instalaciones.',88)}{foot}</section>''')
+S.append(f'''<section class="slide">{BG(1)}{head(1,'Instala una sola skill.','Que sea esta.','La más instalada de skills.sh: <b>más de 3 millones</b> de instalaciones.',88)}{foot}</section>''')
 # 2 qué es
-S.append(f'''<section class="slide">{photo('silla-lado',628,662)}{head(2,'Claude no sabe','qué skills existen.',None,84)}
+S.append(f'''<section class="slide">{BG(2)}{head(2,'Claude no sabe','qué skills existen.',None,84)}
 <div class="panel" style="top:296px">
 {row('book','Qué es una skill','Un archivo de instrucciones que le enseña una tarea nueva a Claude.')}
 {row('search','Qué hace find-skills','Busca en el catálogo la que necesitas y te ayuda a instalarla.')}
 {row('help','Por qué la necesitas','Sin ella, tendrías que buscar y probar skills una por una.',True)}
 </div>{foot}</section>''')
 # 3 cuéntale
-S.append(f'''<section class="slide">{photo('chat',545,720)}{head(3,'Dile qué necesitas,','sin saber el nombre.',None,84)}
+S.append(f'''<section class="slide">{BG(3)}{head(3,'Dile qué necesitas,','sin saber el nombre.',None,84)}
 <div class="panel" style="top:296px">
 <div class="ph2">Pídeselo con tus propias palabras</div>
 <div class="chips"><span>¿Cómo respondo más rápido mis mensajes de WhatsApp?</span><span>Busca una skill para crear mis carruseles.</span><span>¿Existe una skill que revise la ortografía de mis textos?</span></div>
@@ -51,7 +44,7 @@ S.append(f'''<section class="slide">{photo('chat',545,720)}{head(3,'Dile qué ne
 # 4 afirmación (asfalto a sangre)
 S.append(f'''<section class="slide"><img class="bleed" src="img/asfalto.png"><div class="shade"></div>{head(4,'Una skill para','encontrarlas todas.','Tú le dices qué necesitas. Ella busca por ti.',96)}{foot}</section>''')
 # 5 instalar
-S.append(f'''<section class="slide">{photo('caminando',554,744)}{head(5,'Instálala con','un solo comando.',None,84)}
+S.append(f'''<section class="slide">{BG(5)}{head(5,'Instálala con','un solo comando.',None,84)}
 <div class="panel cmp" style="top:296px">
 <div class="code">npx skills add vercel-labs/skills --skill find-skills -a claude-code -g -y</div>
 <div class="note">Pégalo en tu terminal. Queda disponible en todos tus proyectos.</div>
@@ -61,14 +54,14 @@ S.append(f'''<section class="slide">{photo('caminando',554,744)}{head(5,'Instál
 {row('web','En la web','skills.sh: las más usadas y las nuevas.',True)}
 </div>{foot}</section>''')
 # 6 hazla tuya
-S.append(f'''<section class="slide">{photo('modelo',585,690)}{head(6,'Hazla tuya,','con tus reglas.',None,88)}
+S.append(f'''<section class="slide">{BG(6)}{head(6,'Hazla tuya,','con tus reglas.',None,88)}
 <div class="panel" style="top:296px">
 {row('one','1 · Encuentra la skill','find-skills te muestra la que más se parece a lo que haces.')}
 {row('pencil','2 · Pídele a Claude que la adapte','Cuéntale cómo es tu negocio y cómo trabajas.')}
 {row('folder','3 · Guárdala con otro nombre','Así, cuando salga una versión nueva, no pierdes tus cambios.',True)}
 </div>{foot}</section>''')
 # 7 CTA
-S.append(f'''<section class="slide">{photo('abrazo',744,430)}{head(7,'Escribe <span class="pill">SKILLS</span>','y te envío la guía.','Con el paso a paso para instalarla y adaptarla a tu negocio.',92)}{foot}</section>''')
+S.append(f'''<section class="slide">{BG(7)}{head(7,'Escribe <span class="pill">SKILLS</span>','y te envío la guía.','Con el paso a paso para instalarla y adaptarla a tu negocio.',92)}{foot}</section>''')
 
 css='''
 :root{--lime:#b5ff2b}
@@ -78,7 +71,7 @@ body{background:#333;font-family:"Montserrat",Arial,sans-serif;display:flex;flex
 .ph{position:absolute;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
 .ph img{display:block;width:100%;height:auto}
 .bleed{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62) 0,rgba(0,0,0,.3) 34%,rgba(0,0,0,0) 52%)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.66) 0,rgba(0,0,0,.34) 30%,rgba(0,0,0,0) 48%)}
 .n{position:absolute;top:50px;right:60px;z-index:5;background:rgba(40,40,40,.78);border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:23px;padding:9px 20px;border-radius:99px}
 .kick{position:absolute;z-index:5;left:64px;top:62px;font-weight:800;font-size:24px;letter-spacing:.3em;text-transform:uppercase;color:#e8e8e2;display:flex;align-items:center;gap:16px}
 .kick i{width:46px;height:3px;background:var(--lime);display:block}
@@ -87,7 +80,7 @@ body{background:#333;font-family:"Montserrat",Arial,sans-serif;display:flex;flex
 .h .pill{display:inline-block;background:var(--lime);color:#0a0a0a;border-radius:18px;padding:0 22px 6px;margin-left:6px;text-shadow:none}
 .sub{position:absolute;z-index:5;left:64px;right:64px;top:318px;font-weight:600;font-size:31px;line-height:1.3;color:#ececE6;letter-spacing:-0.01em;text-shadow:0 2px 18px rgba(0,0,0,.6)}
 .sub b{color:#fff;font-weight:800}
-.panel{position:absolute;z-index:5;left:40px;right:40px;border-radius:34px;padding:12px 34px;background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.06));border:1.5px solid rgba(255,255,255,.24);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.panel{position:absolute;z-index:5;left:40px;right:40px;border-radius:34px;padding:12px 34px;background:linear-gradient(180deg,rgba(12,12,12,.58),rgba(12,12,12,.46));border:1.5px solid rgba(255,255,255,.24);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
 .row{display:flex;gap:24px;align-items:center;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.2)}
 .row.last{border-bottom:0}
 .cmp .row{padding:10px 0}.cmp .note{padding-bottom:10px}
