@@ -1,41 +1,36 @@
-# Compone los personajes (recortes bg/cut-*.png) sobre las fotos de fondo (bg/orig-*.jpg)
-# y deja un fondo 1080x1350 por slide en img/f<N>.jpg
+# Escena en marco + personajes "saliendo" de la pantalla.
+# Para cada slide genera: img/b<N>.jpg (fondo del marco) e img/p<N>.png (personajes, capa con alfa).
 import cv2, numpy as np, os
 from PIL import Image
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 W,H=1080,1350
-# slide: (fondo, personaje, y0 del recorte original, ancho, top, dx, ajustes del fondo)
-PT={2:694,3:752,5:692,6:694}  # y de la cabeza = borde inferior del panel + 16
-FEET=1335
+FX0,FX1,FB,FEET=40,1040,1255,1335          # marco: x, borde inferior; pies (salen por debajo del marco)
+# bg: foto de fondo, ytop: y de la cabeza, ft: borde superior del marco
 CFG={
- 4:dict(bg=1,ch='brazos',   ytop=432,feet=1420,dx=0,shift=0.0,bright=.92),
- 2:dict(bg=2,ch='silla-lado',ytop=PT[2],feet=1500,dx=0,shift=1.0,bright=.90),
- 3:dict(bg=3,ch='chat',     ytop=PT[3],feet=1500,dx=0,shift=1.0,bright=.95),
- 5:dict(bg=4,ch='caminando',ytop=PT[5],feet=1500,dx=0,shift=1.0,bright=.85,billboard=True),
- 6:dict(bg=5,ch='modelo',   ytop=PT[6],feet=1500,dx=0,shift=1.0,bright=.95),
- 7:dict(bg=6,ch='abrazo',   ytop=452,feet=1420,dx=0,shift=0.0,bright=1.0,floor=True),
+ 2:dict(bg=2,ch='silla-lado',ytop=580,ft=648,bright=.90),
+ 3:dict(bg=3,ch='chat',     ytop=636,ft=704,bright=.95),
+ 5:dict(bg=4,ch='caminando',ytop=616,ft=684,bright=.85,billboard=True),
+ 6:dict(bg=5,ch='modelo',   ytop=580,ft=648,bright=.95),
+ 4:dict(bg=1,ch='brazos',   ytop=400,ft=500,bright=.92),
+ 7:dict(bg=6,ch='abrazo',   ytop=400,ft=500,bright=1.0,floor=True),
 }
-def load_bg(n,c):
-    im=cv2.imread(f'bg/orig-{n}.jpg'); h,w=im.shape[:2]
-    im=im[4:h-14,16:w-4]            # quita el margen de la captura
-    if c.get('billboard'):          # tapa el cartel blanco
-        h,w=im.shape[:2]
+def load_bg(n,c,w,h):
+    im=cv2.imread(f'bg/orig-{n}.jpg'); hh,ww=im.shape[:2]
+    im=im[4:hh-14,16:ww-4]                       # quita el margen de la captura
+    if c.get('billboard'):                       # tapa el cartel blanco
         sub=(im[420:900,480:800].min(2)>225).astype(np.uint8)
         sub=cv2.dilate(sub,np.ones((21,21),np.uint8)).astype(bool)
         ring=im[400:920,460:820].reshape(-1,3)[~np.pad(sub,((20,20),(20,20)))[:520,:360].reshape(-1)]
-        col=np.median(ring,0)
-        noise=np.random.default_rng(1).normal(0,3,(480,320,1))
         patch=im[420:900,480:800].astype(np.float32)
-        patch[sub]=(col+noise.repeat(3,2))[sub]
+        patch[sub]=(np.median(ring,0)+np.random.default_rng(1).normal(0,3,(480,320,1)).repeat(3,2))[sub]
         im[420:900,480:800]=np.clip(cv2.GaussianBlur(patch,(0,0),2),0,255).astype(np.uint8)
-    h,w=im.shape[:2]
-    s=max(W/w,H/h); im=cv2.resize(im,(int(w*s)+1,int(h*s)+1),interpolation=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC)
-    h,w=im.shape[:2]
-    x0=(w-W)//2; y0=int((h-H)*c['shift'])   # shift=1 -> alinea abajo (suelo), 0 -> arriba
-    im=im[y0:y0+H,x0:x0+W].astype(np.float32)*c['bright']
-    if c.get('floor'):              # suelo oscuro para pared sin piso
-        yy=np.linspace(0,1,H)[:,None,None]
-        k=np.clip((yy-0.80)/0.20,0,1)**1.3
+    hh,ww=im.shape[:2]
+    s=max(w/ww,h/hh); im=cv2.resize(im,(int(ww*s)+1,int(hh*s)+1),interpolation=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC)
+    hh,ww=im.shape[:2]
+    x0=(ww-w)//2; y0=hh-h                          # alineado abajo (suelo)
+    im=im[y0:y0+h,x0:x0+w].astype(np.float32)*c['bright']
+    if c.get('floor'):                             # suelo oscuro para pared sin piso
+        yy=np.linspace(0,1,h)[:,None,None]; k=np.clip((yy-0.78)/0.22,0,1)**1.3
         im=im*(1-0.78*k)+np.array([14,12,10],np.float32)*0.78*k
     return im
 def cut(c):
@@ -47,48 +42,27 @@ def cut(c):
     for i in range(1,n):
         if st[i,4]>2500: keep[lab==i]=1
     shape=keep
-    d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3)
-    d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
-    # el borde lo decide la luminosidad de la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
-    key=np.clip((src.max(2)-5)/13,0,1)
-    key=cv2.GaussianBlur(key,(0,0),0.7)
+    d_in=cv2.distanceTransform(shape,cv2.DIST_L2,3); d_out=cv2.distanceTransform(1-shape,cv2.DIST_L2,3)
+    # el borde lo decide la foto original (fondo negro puro): conserva el pelo y no deja halo oscuro
+    key=cv2.GaussianBlur(np.clip((src.max(2)-5)/13,0,1),(0,0),0.7)
     band=np.where(d_in>6,1.0,np.where(d_out<11,key,0.0))
     al=cv2.GaussianBlur(band.astype(np.float32),(0,0),0.6)
-    # quita el negro mezclado en el borde del pelo y la ropa
     rgb=np.where((al<0.98)[...,None],src/np.clip(al,0.65,1)[...,None],src)
     return np.clip(rgb,0,255),al
 def place(rgb,al,c):
     ys,xs=np.where(al>.5); ymin,ymax,xmin,xmax=ys.min(),ys.max(),xs.min(),xs.max()
-    if 'ytop' in c:
-        s=(c.get('feet',FEET)-c['ytop'])/(ymax-ymin); top=int(c['ytop']-ymin*s); left=int(W/2+c['dx']-(xmin+xmax)/2*s)
-    else:
-        s=c['w']/rgb.shape[1]; left=(W-c['w'])//2+c['dx']; top=int(c['top']-c['y0']*s)
-    nw,nh=int(rgb.shape[1]*s),int(rgb.shape[0]*s)
-    rgb=cv2.resize(rgb,(nw,nh),interpolation=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC); al=cv2.resize(al,(nw,nh),interpolation=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC)
+    s=(FEET-c['ytop'])/(ymax-ymin); top=int(c['ytop']-ymin*s); left=int(W/2-(xmin+xmax)/2*s)
+    nw,nh=int(rgb.shape[1]*s),int(rgb.shape[0]*s); itp=cv2.INTER_AREA if s<1 else cv2.INTER_CUBIC
+    rgb=cv2.resize(rgb,(nw,nh),interpolation=itp); al=cv2.resize(al,(nw,nh),interpolation=itp)
     R=np.zeros((H,W,3),np.float32); A=np.zeros((H,W),np.float32)
-    ys0,xs0=max(top,0),max(left,0); ys1,xs1=min(top+nh,H),min(left+nw,W)
-    R[ys0:ys1,xs0:xs1]=rgb[ys0-top:ys1-top,xs0-left:xs1-left]; A[ys0:ys1,xs0:xs1]=al[ys0-top:ys1-top,xs0-left:xs1-left]
-    print(c['ch'],'escala',round(s,2),'alto',round((ymax-ymin)*s))
+    y0,x0=max(top,0),max(left,0); y1,x1=min(top+nh,H),min(left+nw,W)
+    R[y0:y1,x0:x1]=rgb[y0-top:y1-top,x0-left:x1-left]; A[y0:y1,x0:x1]=al[y0-top:y1-top,x0-left:x1-left]
+    print(c['ch'],'escala',round(s,2),'alto',round((ymax-ymin)*s),'ancho',round((xmax-xmin)*s))
     return R,A
-def shadow(A):
-    ys,xs=np.where(A>.5); yb=ys.max()
-    if yb>=H-60: return np.zeros_like(A)   # pies recortados por el borde: sin sombra
-    h=110
-    band=A[yb-h:yb+1].copy(); band[:h-55]=0                 # solo la zona de los zapatos
-    band=np.flipud(band); sq=cv2.resize(band,(W,int(band.shape[0]*.22)))
-    sh=np.zeros_like(A); y=yb-8
-    sh[y:y+sq.shape[0],:]=sq[:H-y]
-    sh=cv2.GaussianBlur(sh,(0,0),11)
-    wide=cv2.GaussianBlur(A[yb-30:yb+1].max(0,keepdims=True).repeat(40,0),(0,0),20)  # sombra ancha suave
-    big=np.zeros_like(A); e=min(yb+34,H); big[yb-6:e]=wide[:e-(yb-6)]
-    return np.clip(sh*1.1+big*.5,0,.7)
 for n,c in CFG.items():
-    bg=load_bg(c['bg'],c); rgb,al=cut(c); R,A=place(rgb,al,c)
-    sh=shadow(A)[...,None]
-    bg=bg*(1-sh*0.85)
-    # un poco del color ambiente sobre el personaje, para que no se vea pegado
-    amb=bg.reshape(-1,3).mean(0)
-    R=R*0.93+amb*0.07
-    out=R*A[...,None]+bg*(1-A[...,None])
-    cv2.imwrite(f'img/f{n}.jpg',np.clip(out,0,255).astype(np.uint8),[cv2.IMWRITE_JPEG_QUALITY,95])
-    print('ok',n)
+    fw,fh=FX1-FX0,FB-c['ft']
+    bg=load_bg(c['bg'],c,fw,fh); cv2.imwrite(f'img/b{n}.jpg',np.clip(bg,0,255).astype(np.uint8),[cv2.IMWRITE_JPEG_QUALITY,93])
+    rgb,al=cut(c); R,A=place(rgb,al,c)
+    R=R*0.94+bg.reshape(-1,3).mean(0)*0.06      # un toque del color del ambiente
+    out=np.dstack([np.clip(R,0,255).astype(np.uint8)[...,::-1],np.clip(A*255,0,255).astype(np.uint8)])
+    Image.fromarray(out,'RGBA').save(f'img/p{n}.png')
