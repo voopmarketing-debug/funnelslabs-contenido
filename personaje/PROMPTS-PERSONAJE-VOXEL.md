@@ -44,3 +44,24 @@ Poses:
 ## Gafas
 - Si cambian entre imágenes: "Las gafas deben ser idénticas a las de la imagen anterior: negras, montura wayfarer, lentes oscuros".
 - Si el reflejo sale raro: "lentes completamente negros, sin reflejos".
+
+---
+
+# Versión final: 5 poses con la hoja de personaje aprobada (hoja-de-personaje.jpg)
+
+Adjuntar en cada pedido: la hoja de personaje + la foto de la silla. Pegar el bloque base y debajo la pose.
+
+## Bloque base
+
+Recrea la foto de la poltrona verde azulado: mantén exactamente mi rostro, mi traje verde azulado, la camiseta blanca, los tenis blancos, el reloj, el fondo negro liso, la luz de estudio y el encuadre vertical 9:16. Ponme unas gafas de sol negras de montura wayfarer, lentes completamente negros sin reflejos, sin cambiar mi barba ni mi expresión.
+
+Agrega a mi personaje voxel de la hoja de personaje, IDÉNTICO a ella: cabeza de bloques con barba, chaqueta de cierre verde azulado, camiseta blanca, pantalón verde azulado, tenis blancos con talón rojo y reloj plateado en la muñeca izquierda. El personaje voxel NO lleva gafas. Que parezca de la misma escena, con la misma luz y las mismas sombras. No dibujes la cuadrícula ni escribas texto, y deja libre el espacio superior para un logo. Una sola imagen.
+
+## Poses
+1. (Portada) POSE: el personaje voxel está de pie detrás de la silla, con los antebrazos apoyados en el respaldo a cada lado de mi cabeza, inclinado hacia adelante y mirando a la cámara con una leve sonrisa. Yo sigo sentado con las manos entrelazadas.
+2. POSE: el personaje voxel está de pie detrás de la silla y me abraza por detrás: sus brazos rodean mis hombros y su cabeza queda junto a la mía. Yo sigo sentado, mirando a la cámara.
+3. POSE: el personaje voxel está de pie a mi lado, con un brazo sobre mi hombro, como compañeros de equipo, mirando a la cámara. Yo sigo sentado en la poltrona.
+4. POSE: el personaje voxel está de pie detrás de la silla, señalando hacia arriba con una mano, con una sonrisa. Yo sigo sentado y miro a la cámara.
+5. (Cierre) POSE: el personaje voxel está sentado en el apoyabrazos de la poltrona y choca el puño conmigo. Yo me inclino un poco hacia él, con las gafas puestas.
+
+Nota: ambos visten el mismo traje verde azulado (efecto "gemelo digital"). Para diferenciarlos, cambiar la ropa del personaje voxel.
