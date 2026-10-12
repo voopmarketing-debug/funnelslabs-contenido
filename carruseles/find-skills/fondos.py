@@ -5,10 +5,10 @@ from PIL import Image
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 W,H=1080,1350
 # slide: (fondo, personaje, y0 del recorte original, ancho, top, dx, ajustes del fondo)
-PT={2:626,3:706,5:657,6:626}  # y de la cabeza = borde inferior del panel + 16
+PT={2:694,3:752,5:692,6:694}  # y de la cabeza = borde inferior del panel + 16
 FEET=1335
 CFG={
- 1:dict(bg=1,ch='brazos',   w=860,top=404,y0=194,dx=0, shift=0.0,bright=.92),
+ 4:dict(bg=1,ch='brazos',   w=860,top=404,y0=194,dx=0, shift=0.0,bright=.92),
  2:dict(bg=2,ch='silla-lado',ytop=PT[2],dx=0,shift=1.0,bright=.90),
  3:dict(bg=3,ch='chat',     ytop=PT[3],dx=0, shift=1.0,bright=.95),
  5:dict(bg=4,ch='caminando',ytop=PT[5],dx=0, shift=1.0,bright=.85,billboard=True),
