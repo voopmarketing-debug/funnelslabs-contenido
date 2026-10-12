@@ -135,3 +135,17 @@ C. Caminando: POSE: el personaje voxel y yo CAMINAMOS juntos hacia la cámara, l
 D. Cierre, apretón de manos: POSE: el personaje voxel y yo estamos DE PIE, uno frente al otro de lado, dándonos un apretón de manos en el centro de la imagen, y los dos miramos a la cámara con una leve sonrisa. Cuerpo entero. La poltrona verde azulado queda al fondo, desenfocada.
 
 Corrección si el voxel sale pequeño: "el personaje voxel es de mi misma estatura, corrígelo y mantén todo lo demás".
+
+---
+
+# Poses con teléfono (usar con el Bloque base v3; sin poltrona, fondo negro liso)
+
+Adjuntar: hoja de personaje + foto de la silla + imagen de los dos con brazos cruzados (referencia de escala).
+
+E. Hablando por teléfono: POSE: sin poltrona. El personaje voxel y yo estamos DE PIE, lado a lado, de cuerpo entero, cada uno hablando por teléfono. Yo hablo con un smartphone moderno y realista, negro, pegado a la oreja, con la otra mano en el bolsillo del pantalón. El personaje voxel habla con un teléfono hecho de bloques, también voxel, con la pantalla pixelada, pegado a su oreja de bloques, con la otra mano de puño de bloques en el bolsillo. Cada teléfono respeta el estilo de su dueño: el mío es fotográfico y el suyo es de bloques. Los dos miramos ligeramente hacia la derecha de la imagen, con una expresión segura y una leve sonrisa, como en una foto de revista. El personaje voxel a mi izquierda, los dos con los pies firmes sobre el piso.
+
+F. Contestando un chat: POSE: sin poltrona. El personaje voxel y yo estamos DE PIE, lado a lado, de cuerpo entero, cada uno contestando un chat en su teléfono, sosteniéndolo con las dos manos a la altura del pecho y mirando la pantalla con una leve sonrisa. Yo tengo un smartphone moderno y realista, con la pantalla encendida mostrando burbujas de chat verdes y blancas, SIN texto legible. El personaje voxel tiene un teléfono hecho de bloques, con la pantalla pixelada encendida mostrando burbujas de chat de bloques, también sin texto legible. La luz de las pantallas ilumina suavemente la cara de cada uno. El personaje voxel a mi izquierda, los dos con los pies firmes sobre el piso.
+
+Correcciones:
+- "El teléfono del personaje voxel debe ser un objeto de bloques con pantalla pixelada, no un smartphone realista."
+- Si el texto de la pantalla sale deformado: pedir burbujas vacías y poner el texto después en el diseño.
