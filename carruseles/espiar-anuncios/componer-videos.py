@@ -2,7 +2,7 @@
 Uso: guarda los videos en videos/ con estos nombres (mp4 o mov) y ejecuta: python3 componer-videos.py"""
 import os, glob, subprocess
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-SLIDES={3:'gymshark',4:'duolingo',5:'hellofresh',6:'olipop',7:'liquid-death',8:'ritual'}
+SLIDES={3:'saju',4:'duolingo',5:'hellofresh',6:'olipop',7:'liquid-death',8:'ritual'}
 X,Y,W,H=60,668,960,540          # hueco del video dentro del marco
 for n,slug in SLIDES.items():
     v=[f for f in glob.glob(f'videos/{slug}.*') if f.lower().endswith(('.mp4','.mov','.m4v','.webm'))]

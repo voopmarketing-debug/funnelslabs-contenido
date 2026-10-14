@@ -32,7 +32,7 @@ S.append(f'''<section class="slide"><img class="bleed" src="img/f2.jpg">{head(2,
 {row('eye','Muestra anuncios activos','Los mensajes, formatos y ofertas que una marca tiene hoy.')}
 {row('list','Te ahorra horas','Ves ideas reales antes de gastar en probar las tuyas.',True)}
 </div>{foot}</section>''')
-B=[('Ropa deportiva','Gymshark','Anuncios con creadores, producto y ofertas.','Quién aparece en los primeros 3 segundos.'),
+B=[('Anteojos','Sajú','Anteojos sostenibles y personalizables.','Un mismo anuncio en varias versiones: producto solo o una persona hablando.'),
    ('Apps','Duolingo','Anuncios que parecen contenido, no publicidad.','El humor y cómo cuentan una idea en pocos segundos.'),
    ('Comida a domicilio','HelloFresh','Anuncios centrados en la oferta.','Cómo muestran el precio y qué incluye.'),
    ('Bebidas','Olipop','Anuncios que explican un beneficio con palabras simples.','Cómo explican el producto sin tecnicismos.'),
