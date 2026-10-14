@@ -31,12 +31,12 @@ S.append(f'''<section class="slide">{head(2,'Biblioteca de anuncios','Tu compete
 {row('eye','Muestra anuncios activos','Los mensajes, formatos y ofertas que una marca tiene hoy.')}
 {row('list','Te ahorra horas','Ves ideas reales antes de gastar en probar las tuyas.',True)}
 </div>{photo('chat',545,720)}{foot}</section>''')
-B=[('Moda','Shein','Anuncios con mucho volumen y variedad de prendas.','Cuántas versiones distintas hacen del mismo producto.'),
-   ('Tienda online','Temu','Anuncios basados en ofertas y descuentos.','Cómo destacan el precio y la urgencia.'),
-   ('E-commerce','Mercado Libre','Anuncios que combinan oferta, envío y cuotas.','Cómo comunican el envío y las formas de pago.'),
-   ('Fintech','Nubank','Anuncios que explican un servicio financiero con claridad.','Cómo simplifican algo que parece complicado.'),
-   ('Delivery','Rappi','Anuncios con promociones y mucha variedad.','Cómo muestran la promoción en el primer segundo.'),
-   ('Ropa deportiva','Nike','Anuncios que venden una idea antes que el producto.','Cómo cuentan una historia y no solo muestran el producto.')]
+B=[('Ropa deportiva','Gymshark','Anuncios con creadores, producto y ofertas.','Quién aparece en los primeros 3 segundos.'),
+   ('Apps','Duolingo','Anuncios que parecen contenido, no publicidad.','El humor y cómo cuentan una idea en pocos segundos.'),
+   ('Comida a domicilio','HelloFresh','Anuncios centrados en la oferta.','Cómo muestran el precio y qué incluye.'),
+   ('Bebidas','Olipop','Anuncios que explican un beneficio con palabras simples.','Cómo explican el producto sin tecnicismos.'),
+   ('Agua en lata','Liquid Death','Anuncios con una personalidad muy marcada.','Los ganchos inesperados y el tono de la marca.'),
+   ('Suplementos','Ritual','Anuncios que construyen confianza.','Cómo muestran los ingredientes y de dónde vienen.')]
 for k,(c,n,d,l) in enumerate(B): S.append(brand(3+k,c,n,d,l,118 if len(n)<10 else 100))
 S.append(f'''<section class="slide">{head(9,'Cómo leerlos','Cómo saber si un','anuncio funciona.',None,84)}
 <div class="panel" style="top:300px">
