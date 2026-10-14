@@ -2,13 +2,13 @@
 
 ## 1. Publicación (perfil de Funnels Labs)
 
-¿Te quedaste sin ideas de anuncios? Antes de inventar, mira lo que ya probaron otros.
+¿Te quedaste sin ideas de anuncios? Antes de inventar, mira lo que otros ya están probando.
 
-La Biblioteca de anuncios de Meta es pública y gratis. Ahí ves los mensajes, formatos y ofertas que una marca tiene activos hoy. Te muestro 6 marcas, varias latinas, y qué se aprende de sus anuncios.
+La Biblioteca de anuncios de Meta es pública y gratis. Ahí ves qué anuncios tiene activos cualquier marca: Sajú, Converzzo, HelloFresh, Liquid Death y más. En este carrusel verás qué formatos usa cada una y en qué fijarte.
 
-Copia el método, no el anuncio. Así se ahorra plata en pruebas.
+Copia el método, no el anuncio. Así te ahorras plata en pruebas.
 
-Comenta "ANUNCIOS" y te envío la guía para espiarlos paso a paso y convertirlos en ideas para tu negocio.
+Comenta "ANUNCIOS" y te envío la guía paso a paso para espiarlos y convertirlos en ideas para tu negocio.
 
 #metaads #bibliotecadeanuncios #marketingdigital #anuncios #funnelslabs
 
@@ -18,7 +18,7 @@ Comenta "ANUNCIOS" y te envío la guía para espiarlos paso a paso y convertirlo
 
 Cuando me quedo sin ideas de anuncios, no empiezo de cero: reviso la Biblioteca de anuncios de Meta.
 
-Es pública, es gratis y te enseña lo que otras marcas están probando hoy. En este post van 6 marcas y lo que yo miro en cada una.
+Es pública, es gratis y te muestra lo que las marcas tienen activo hoy. Miré 6, algunas colombianas, y anoté los formatos que usa cada una.
 
 Comenta "ANUNCIOS" y te envío la guía paso a paso.
 
