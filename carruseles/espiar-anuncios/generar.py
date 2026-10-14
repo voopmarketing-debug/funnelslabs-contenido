@@ -33,7 +33,7 @@ S.append(f'''<section class="slide"><img class="bleed" src="img/f2.jpg">{head(2,
 {row('list','Te ahorra horas','Ves ideas reales antes de gastar en probar las tuyas.',True)}
 </div>{foot}</section>''')
 B=[('Anteojos','Sajú','Anteojos sostenibles y personalizables.','Un mismo anuncio en varias versiones: producto solo o una persona hablando.'),
-   ('Apps','Duolingo','Anuncios que parecen contenido, no publicidad.','El humor y cómo cuentan una idea en pocos segundos.'),
+   ('Negocios','Alex Hormozi','Video, imagen y portada de un recurso gratis.','Cómo regala algo útil a cambio de tu correo.'),
    ('Comida a domicilio','HelloFresh','Anuncios centrados en la oferta.','Cómo muestran el precio y qué incluye.'),
    ('Bebidas','Olipop','Anuncios que explican un beneficio con palabras simples.','Cómo explican el producto sin tecnicismos.'),
    ('Agua en lata','Liquid Death','Anuncios con una personalidad muy marcada.','Los ganchos inesperados y el tono de la marca.'),
