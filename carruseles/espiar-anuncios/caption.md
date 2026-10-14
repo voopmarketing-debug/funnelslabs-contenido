@@ -4,9 +4,9 @@
 
 ¿Te quedaste sin ideas de anuncios? Antes de inventar, mira lo que ya probaron otros.
 
-La Biblioteca de anuncios de Meta es pública y gratis. Ahí ves los mensajes, formatos y ofertas que una marca tiene activos hoy. Te muestro 6 marcas que reviso y cómo leer sus anuncios.
+La Biblioteca de anuncios de Meta es pública y gratis. Ahí ves los mensajes, formatos y ofertas que una marca tiene activos hoy. Te muestro 6 marcas, varias latinas, y qué se aprende de sus anuncios.
 
-Copia el método, no el anuncio.
+Copia el método, no el anuncio. Así se ahorra plata en pruebas.
 
 Comenta "ANUNCIOS" y te envío la guía para espiarlos paso a paso y convertirlos en ideas para tu negocio.
 

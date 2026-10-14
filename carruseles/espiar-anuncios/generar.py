@@ -32,12 +32,12 @@ S.append(f'''<section class="slide"><img class="bleed" src="img/f2.jpg">{head(2,
 {row('eye','Muestra anuncios activos','Los mensajes, formatos y ofertas que una marca tiene hoy.')}
 {row('list','Te ahorra horas','Ves ideas reales antes de gastar en probar las tuyas.',True)}
 </div>{foot}</section>''')
-B=[('Anteojos','Sajú','Anteojos sostenibles y personalizables.','Un mismo anuncio en varias versiones: producto solo o una persona hablando.'),
+B=[('Anteojos','Sajú','Gafas formuladas en 20 minutos y anteojos personalizables.','Mira cómo prueban varias versiones del mismo anuncio: solo el producto o alguien hablando a cámara.'),
    ('Negocios','Alex Hormozi','Video, imagen y portada de un recurso gratis.','Cómo regala algo útil a cambio de tu correo.'),
-   ('Comida a domicilio','HelloFresh','Anuncios centrados en la oferta.','Cómo muestran el precio y qué incluye.'),
-   ('Bebidas','Olipop','Anuncios que explican un beneficio con palabras simples.','Cómo explican el producto sin tecnicismos.'),
-   ('Agua en lata','Liquid Death','Anuncios con una personalidad muy marcada.','Los ganchos inesperados y el tono de la marca.'),
-   ('Suplementos','Ritual','Anuncios que construyen confianza.','Cómo muestran los ingredientes y de dónde vienen.')]
+   ('Comida a domicilio','HelloFresh','La misma oferta, 10 comidas gratis, repetida en muchas versiones.','Cómo comparan: la mitad de lo que cuesta pedir domicilio.'),
+   ('Marketing digital','Converzzo','Videos de una persona hablando de un problema real.','Cómo abren con el dolor del cliente: “Publicas todos los días y nadie te ve”.'),
+   ('Bebidas','Liquid Death','Humor, creadores y datos en un mismo anuncio.','Cómo mezclan un dato directo, 90 % menos azúcar, con creadores y humor.'),
+   ('Cosméticos','Rituals','Anuncios de temporada: ediciones limitadas y calendario de adviento.','Cómo cambian el mensaje según la fecha: “última oportunidad”.')]
 for k,(c,n,d,l) in enumerate(B): S.append(brand(3+k,c,n,d,l,118 if len(n)<10 else 100))
 S.append(f'''<section class="slide"><img class="bleed" src="img/f9.jpg">{head(9,'Cómo leerlos','Cómo saber si un','anuncio funciona.',None,88)}
 <div class="tag" style="top:330px">Copia el método, no el anuncio.</div>
