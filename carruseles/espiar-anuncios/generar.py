@@ -24,13 +24,13 @@ def brand(i,cat,name,desc,look,size=118):
 <div class="look"><b>Fíjate en</b><span>{look}</span></div>
 <div class="win" id="slot{i}"><div class="bar"><i></i><i></i><i></i><em>Biblioteca de anuncios de Meta · {name}</em></div><div class="vid"><span>Aquí va tu video de {name}</span></div></div>{foot}</section>'''
 S=[]
-S.append(f'''<section class="slide">{photo('brazos',860,404)}{head(1,'Biblioteca de anuncios','Las marcas que reviso','cuando no tengo ideas.','Anuncios reales, a un clic de distancia.',70)}{foot}</section>''')
-S.append(f'''<section class="slide">{head(2,'Biblioteca de anuncios','Tu competencia ya probó','lo que tú aún no.',None,72)}
+S.append(f'''<section class="slide"><img class="bleed" src="img/f1.jpg">{head(1,'Biblioteca de anuncios','Las marcas que reviso','cuando no tengo ideas.','Anuncios reales, a un clic de distancia.',70)}{foot}</section>''')
+S.append(f'''<section class="slide"><img class="bleed" src="img/f2.jpg">{head(2,'Biblioteca de anuncios','Tu competencia ya probó','lo que tú aún no.',None,72)}
 <div class="panel" style="top:300px">
 {row('free','Es pública y gratis','Cualquier persona puede entrar, sin cuenta de anunciante.')}
 {row('eye','Muestra anuncios activos','Los mensajes, formatos y ofertas que una marca tiene hoy.')}
 {row('list','Te ahorra horas','Ves ideas reales antes de gastar en probar las tuyas.',True)}
-</div>{photo('chat',545,720)}{foot}</section>''')
+</div>{foot}</section>''')
 B=[('Ropa deportiva','Gymshark','Anuncios con creadores, producto y ofertas.','Quién aparece en los primeros 3 segundos.'),
    ('Apps','Duolingo','Anuncios que parecen contenido, no publicidad.','El humor y cómo cuentan una idea en pocos segundos.'),
    ('Comida a domicilio','HelloFresh','Anuncios centrados en la oferta.','Cómo muestran el precio y qué incluye.'),
@@ -38,13 +38,13 @@ B=[('Ropa deportiva','Gymshark','Anuncios con creadores, producto y ofertas.','Q
    ('Agua en lata','Liquid Death','Anuncios con una personalidad muy marcada.','Los ganchos inesperados y el tono de la marca.'),
    ('Suplementos','Ritual','Anuncios que construyen confianza.','Cómo muestran los ingredientes y de dónde vienen.')]
 for k,(c,n,d,l) in enumerate(B): S.append(brand(3+k,c,n,d,l,118 if len(n)<10 else 100))
-S.append(f'''<section class="slide">{head(9,'Cómo leerlos','Cómo saber si un','anuncio funciona.',None,84)}
+S.append(f'''<section class="slide"><img class="bleed" src="img/f9.jpg">{head(9,'Cómo leerlos','Cómo saber si un','anuncio funciona.',None,84)}
 <div class="panel" style="top:300px">
 {row('cal','En circulación desde','Si lleva meses activo, es una pista de que sigue dando resultado.')}
 {row('layers','Varias versiones','La marca está probando cambios sobre una misma idea.')}
 {row('copy','Mismo texto, varios anuncios','Es el mensaje que más repite. Fíjate en cuál es.',True)}
-</div><div class="tag">Copia el método, no el anuncio.</div>{photo("caminando",520,790)}{foot}</section>''')
-S.append(f'''<section class="slide">{photo('abrazo',744,430)}{head(10,'Biblioteca de anuncios','Escribe <span class="pill">ANUNCIOS</span>','y te envío la guía.','Cómo espiar anuncios en la Biblioteca de Meta y convertirlos en ideas para tu negocio.',92)}{foot}</section>''')
+</div><div class="tag">Copia el método, no el anuncio.</div>{foot}</section>''')
+S.append(f'''<section class="slide"><img class="bleed" src="img/f10.jpg">{head(10,'Biblioteca de anuncios','Escribe <span class="pill">ANUNCIOS</span>','y te envío la guía.','Cómo espiar anuncios en la Biblioteca de Meta y convertirlos en ideas para tu negocio.',92)}{foot}</section>''')
 css=open('estilo.css').read()
 html=f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Espiar anuncios — Funnels Labs</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
