@@ -48,3 +48,7 @@ body{background:#333;font-family:"Montserrat",Arial,sans-serif;display:flex;flex
 .low{position:absolute;z-index:5;left:64px;right:64px;bottom:118px}
 .low .h{position:static;font-size:104px}
 .sub2{font-weight:600;font-size:32px;line-height:1.3;color:#ececE6;margin-top:26px;max-width:880px;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+
+.fmt{position:absolute;z-index:5;left:64px;right:64px;top:232px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.fmt b{font-weight:800;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:#9a9a92;margin-right:6px}
+.fmt i{font-style:normal;font-weight:700;font-size:24px;color:#0a0a0a;background:var(--lime);border-radius:99px;padding:6px 18px}

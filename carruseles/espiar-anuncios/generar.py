@@ -20,9 +20,10 @@ def head(i,kick,l1,l2=None,sub=None,size=88):
 def low(inner): return f'<div class="low">{inner}</div>'
 foot='<div class="foot"><span>@funnelslabs</span></div>'
 # ventana de pantalla para el video: x=60 y=620 (barra 48px) -> video 960x540 en (60,668)
+FMT={'Sajú':['Imagen de producto','Video de una persona hablando'],'Alex Hormozi':['Video','Imagen con su foto','Portada de ebook'],'HelloFresh':['Video vertical','Imagen de platos','Creadora con código'],'Converzzo':['Video vertical','Una persona a cámara'],'Liquid Death':['Imagen de producto','Comparativo','Video con humor'],'Rituals':['Foto de producto','Video corto','Piezas de temporada']}
 def brand(i,cat,name,desc,look,size=118):
     return f'''<section class="slide">{head(i,f"{i-2:02d} · {cat}",name,None,desc,size)}
-<div class="look"><b>Fíjate en</b><span>{look}</span></div>
+<div class="fmt"><b>Formatos</b>{''.join(f'<i>{x}</i>' for x in FMT[name])}</div><div class="look"><b>Fíjate en</b><span>{look}</span></div>
 <div class="win" id="slot{i}"><div class="bar"><i></i><i></i><i></i><em>Biblioteca de anuncios de Meta · {name}</em></div><div class="vid"><span>Aquí va tu video de {name}</span></div></div>{foot}</section>'''
 S=[]
 S.append(f'''<section class="slide"><img class="bleed" src="img/f1.jpg"><div class="n">1/10</div><div class="kick"><i></i>Biblioteca de anuncios</div>{low('<div class="h" style="font-size:86px;position:static">Las marcas que<br>reviso cuando<br><span class="l">no tengo ideas.</span></div><div class="sub2">Anuncios reales, a un clic de distancia.</div>')}{foot}</section>''')
@@ -33,11 +34,11 @@ S.append(f'''<section class="slide"><img class="bleed" src="img/f2.jpg">{head(2,
 {row('list','Te ahorra horas','Ves ideas reales antes de gastar en probar las tuyas.',True)}
 </div>{foot}</section>''')
 B=[('Anteojos','Sajú','Gafas formuladas en 20 minutos y anteojos personalizables.','Mira cómo prueban varias versiones del mismo anuncio: solo el producto o alguien hablando a cámara.'),
-   ('Negocios','Alex Hormozi','Video, imagen y portada de un recurso gratis.','Cómo regala algo útil a cambio de tu correo.'),
-   ('Comida a domicilio','HelloFresh','La misma oferta, 10 comidas gratis, repetida en muchas versiones.','Cómo comparan: la mitad de lo que cuesta pedir domicilio.'),
+   ('Negocios','Alex Hormozi','Mezcla formatos para ofrecer un recurso gratis.','Cómo regala algo útil a cambio de tu correo.'),
+   ('Comida a domicilio','HelloFresh','La misma oferta, 10 comidas gratis, en muchas versiones.','Cómo comparan: la mitad de lo que cuesta pedir domicilio.'),
    ('Marketing digital','Converzzo','Videos de una persona hablando de un problema real.','Cómo abren con el dolor del cliente: “Publicas todos los días y nadie te ve”.'),
    ('Bebidas','Liquid Death','Humor, creadores y datos en un mismo anuncio.','Cómo mezclan un dato directo, 90 % menos azúcar, con creadores y humor.'),
-   ('Cosméticos','Rituals','Anuncios de temporada: ediciones limitadas y calendario de adviento.','Cómo cambian el mensaje según la fecha: “última oportunidad”.')]
+   ('Cosméticos','Rituals','Anuncios de temporada y ediciones limitadas.','Cómo cambian el mensaje según la fecha: “última oportunidad”.')]
 for k,(c,n,d,l) in enumerate(B): S.append(brand(3+k,c,n,d,l,118 if len(n)<10 else 100))
 S.append(f'''<section class="slide"><img class="bleed" src="img/f9.jpg">{head(9,'Cómo leerlos','Cómo saber si un','anuncio funciona.',None,88)}
 <div class="tag" style="top:330px">Copia el método, no el anuncio.</div>
