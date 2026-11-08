@@ -4,7 +4,7 @@ USER='@sajuma_reposteria'
 NOMBRE='Miryam'   # reemplazar por el nombre de la dueña
 def brand(c='#F5EEDC'): return f'<div class="brand" style="color:{c}"><span>SAJUMA</span><span>{USER.upper()}</span></div>'
 def full(img,inner):
-    return f'<section class="slide" style="background:#2a1d14"><div class="photo" style="height:1350px;background-image:url(img/{img})"></div><div class="scrim"></div>{brand()}<div class="over">{inner}</div></section>'
+    return f'<section class="slide" style="background:#2a1d14"><div class="photo" style="height:1350px;background-image:url(img/{img})"></div><div class="scrim"></div><div class="topscrim"></div>{brand()}<div class="over">{inner}</div></section>'
 S=[]
 # 1 portada
 S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
@@ -38,7 +38,8 @@ css='''
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#222;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0;font-family:"Jost",sans-serif}
 .slide{position:relative;width:1080px;height:1350px;overflow:hidden}
-.brand{position:absolute;z-index:9;left:60px;right:60px;top:52px;display:flex;justify-content:space-between;font-weight:400;font-size:24px;letter-spacing:.32em;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.brand{position:absolute;z-index:9;left:60px;right:60px;top:52px;display:flex;justify-content:space-between;font-weight:400;font-size:26px;letter-spacing:.3em;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.topscrim{position:absolute;left:0;right:0;top:0;height:220px;z-index:3;background:linear-gradient(180deg,rgba(28,18,12,.55),rgba(28,18,12,0))}
 .intro{position:absolute;left:0;right:0;text-align:center;font-weight:300;font-size:54px;letter-spacing:-.005em}
 .big{position:absolute;left:0;right:0;text-align:center;font-family:"Gloock",serif;line-height:.98;letter-spacing:-.01em}
 .g{font-family:"Gloock",serif;line-height:1}
