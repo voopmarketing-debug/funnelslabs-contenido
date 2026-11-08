@@ -1,10 +1,10 @@
 import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 USER='@usuario'     # reemplazar por el usuario real
-NOMBRE='[nombre]'   # reemplazar por el nombre de la dueña
+NOMBRE='Miryam'   # reemplazar por el nombre de la dueña
 def brand(c='#F5EEDC'): return f'<div class="brand" style="color:{c}"><span>SAJUMA</span><span>{USER.upper()}</span></div>'
-def split(img,txt,bg='#3E4A35',fg='#F5EEDC',h=930):
-    return f'<section class="slide" style="background:{bg}"><div class="photo" style="height:{h}px;background-image:url(img/{img})"></div>{brand("#F5EEDC")}<div class="panel" style="top:{h}px;height:{1350-h}px;background:{bg};color:{fg}">{txt}</div></section>'
+def full(img,inner):
+    return f'<section class="slide" style="background:#2a1d14"><div class="photo" style="height:1350px;background-image:url(img/{img})"></div><div class="scrim"></div>{brand()}<div class="over">{inner}</div></section>'
 S=[]
 # 1 portada
 S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
@@ -14,11 +14,11 @@ S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{br
 <img class="hero" src="img/cupcake.png" style="left:330px;top:700px;width:420px">
 <div class="cap" style="bottom:38px">DESLIZA →</div></section>''')
 # 2
-S.append(split('prev-02-manos-masa.jpg',f'<div class="t1" style="font-size:62px">Soy {NOMBRE}.<br>Mamá antes que pastelera.</div>'))
+S.append(full('full-02-manos-masa.jpg',f'<div class="g" style="font-size:150px">Soy {NOMBRE}.</div><div class="t1" style="font-size:60px;margin-top:14px">Mamá antes que pastelera.</div>'))
 # 3
-S.append(split('prev-03-mesa-familiar.jpg','<div class="t1" style="font-size:50px">Quería que en casa celebráramos con postre… sin descuidar lo que más amo: su salud.</div>'))
+S.append(full('full-03-mesa-familiar.jpg','<div class="t1" style="font-size:62px">Quería que en casa celebráramos con postre… sin descuidar lo que más amo: su salud.</div>'))
 # 4
-S.append(split('prev-04-ingredientes.jpg','<div class="intro" style="position:static;font-size:46px">Así que empecé a cambiar ingredientes.</div><div class="g" style="font-size:96px;margin-top:6px">uno por uno.</div>',bg='#F5EEDC',fg='#3E4A35'))
+S.append(full('full-04-ingredientes.jpg','<div class="t1" style="font-size:58px">Así que empecé a cambiar ingredientes.</div><div class="g" style="font-size:150px;margin-top:10px">uno por uno.</div>'))
 # 5
 S.append(f'''<section class="slide" style="background:#A3AE84;color:#3E4A35">{brand("#3E4A35")}
 <div class="intro" style="top:190px;font-size:50px">Y descubrí algo:</div>
@@ -27,7 +27,7 @@ S.append(f'''<section class="slide" style="background:#A3AE84;color:#3E4A35">{br
 <img class="hero" src="img/torta-frutas.png" style="left:170px;top:600px;width:740px">
 </section>''')
 # 6
-S.append(split('prev-06-horno.jpg','<div class="t1" style="font-size:56px">Si era bueno para mi familia, podía ser bueno para la tuya.</div>'))
+S.append(full('full-06-horno.jpg','<div class="t1" style="font-size:64px">Si era bueno para mi familia, podía ser bueno para la tuya.</div>'))
 # 7
 S.append(f'''<section class="slide" style="background:#F5EEDC;color:#3E4A35">{brand("#3E4A35")}
 <div class="intro" style="top:330px;font-size:60px;color:#2a2a24">Así nació</div>
@@ -48,6 +48,9 @@ body{background:#222;display:flex;flex-direction:column;align-items:center;gap:4
 .photo{position:absolute;left:0;top:0;width:1080px;background-size:cover;background-position:center}
 .panel{position:absolute;left:0;width:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 90px}
 .t1{font-weight:300;line-height:1.18;text-wrap:balance}
+.scrim{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(28,18,12,.30) 0,rgba(28,18,12,.12) 30%,rgba(28,18,12,.62) 62%,rgba(28,18,12,.88) 100%)}
+.over{position:absolute;z-index:5;left:80px;right:80px;bottom:90px;text-align:center;color:#F5EEDC;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.over .g{line-height:1}
 .line{position:absolute;left:480px;width:120px;top:1085px;border-top:1.5px solid #3E4A35;opacity:.5}
 '''
 html=f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>SAJUMA — Todo empezó en mi cocina</title>
