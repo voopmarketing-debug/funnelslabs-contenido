@@ -9,5 +9,5 @@ Cuéntame en comentarios: ¿cuál es el postre favorito en tu casa?
 #pasteleriaartesanal #postressaludables #hechoencasa #[ciudad] #reposteria
 
 ## Pendientes antes de publicar
-- Reemplazar `@usuario` y `[nombre]` en generar.py (USER y NOMBRE) y `#[ciudad]`.
+- Reemplazar `#[ciudad]` en los hashtags.
 - Slides 2, 3, 4 y 6: imágenes de IA (Canva). Falta descargarlas en tamaño real y copiarlas a img/ (ahora hay miniaturas).

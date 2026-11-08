@@ -1,6 +1,6 @@
 import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-USER='@usuario'     # reemplazar por el usuario real
+USER='@sajuma_reposteria'
 NOMBRE='Miryam'   # reemplazar por el nombre de la dueña
 def brand(c='#F5EEDC'): return f'<div class="brand" style="color:{c}"><span>SAJUMA</span><span>{USER.upper()}</span></div>'
 def full(img,inner):
