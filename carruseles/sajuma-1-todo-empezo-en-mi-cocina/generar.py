@@ -18,11 +18,9 @@ S.append(full('full-03-mesa-familiar.jpg','<div class="t1" style="font-size:62px
 # 4
 S.append(full('full-04-ingredientes.jpg','<div class="t1" style="font-size:58px">Así que empecé a cambiar ingredientes.</div><div class="g" style="font-size:150px;margin-top:10px">uno por uno.</div>'))
 # 5
-S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
-<div class="intro" style="top:190px;font-size:50px">Y descubrí algo:</div>
-<div class="big" style="top:262px;font-size:112px;line-height:1">lo rico también<br>puede cuidarte</div>
-<div class="shadow" style="left:150px;top:1180px;width:780px;opacity:.6"></div>
-<img class="hero" src="img/cheesecake-pistacho.png" style="left:90px;top:700px;width:900px"></section>''')
+S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC"><img class="hero" src="img/p5-frambuesa.png" style="left:103px;top:211px;width:874px;z-index:1">{brand()}
+<div class="intro" style="top:150px;font-size:50px">Y descubrí algo:</div>
+<div class="big" style="top:222px;font-size:102px;line-height:1;z-index:4">lo rico también<br>puede cuidarte</div></section>''')
 # 6
 S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC"><img class="hero" src="img/cupcake-mano-verde-fade.png" style="left:201px;top:0;width:677px;z-index:1">{brand()}
 <div class="over" style="bottom:90px"><div class="t1" style="font-size:62px">Si era bueno para mi familia, podía ser bueno para la tuya.</div></div></section>''')
