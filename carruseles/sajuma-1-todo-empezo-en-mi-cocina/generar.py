@@ -7,11 +7,10 @@ def full(img,inner):
     return f'<section class="slide" style="background:#2a1d14"><div class="photo" style="height:1350px;background-image:url(img/{img})"></div><div class="scrim"></div><div class="topscrim"></div>{brand()}<div class="over">{inner}</div></section>'
 S=[]
 # 1 portada
-S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
-<div class="intro" style="top:165px">Todo empezó con una pregunta…</div>
-<div class="big" style="top:235px;font-size:176px">¿se lo<br>daría a<br>mis hijos?</div>
-<img class="hero" src="img/cheesecake-caramelo-fade.png" style="left:90px;top:860px;width:900px">
-<div class="cap" style="top:790px;font-size:26px">DESLIZA →</div></section>''')
+S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC"><div class="photo" style="height:1350px;background-image:url(img/p1-fondo.jpg)"></div>{brand()}
+<div class="intro" style="top:190px;text-shadow:0 2px 16px rgba(0,0,0,.35)">Todo empezó con una pregunta…</div>
+<div class="big" style="top:255px;font-size:150px;text-shadow:0 3px 26px rgba(0,0,0,.35)">¿se lo<br>daría a<br>mis hijos?</div>
+<div class="cap" style="bottom:36px;font-size:26px;text-shadow:0 2px 12px rgba(0,0,0,.6)">DESLIZA →</div></section>''')
 # 2
 S.append(full('full-02-familia.jpg',f'<div class="g" style="font-size:150px">Soy {NOMBRE}.</div><div class="t1" style="font-size:60px;margin-top:14px">Mamá antes que pastelera.</div>'))
 # 3
