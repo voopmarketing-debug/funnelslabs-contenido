@@ -22,8 +22,8 @@ S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC"><im
 <div class="intro" style="top:150px;font-size:50px">Y descubrí algo:</div>
 <div class="big" style="top:222px;font-size:102px;line-height:1;z-index:4">lo rico también<br>puede cuidarte</div></section>''')
 # 6
-S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC"><img class="hero" src="img/cupcake-mano-verde-fade.png" style="left:201px;top:0;width:677px;z-index:1">{brand()}
-<div class="over" style="bottom:90px"><div class="t1" style="font-size:62px">Si era bueno para mi familia, podía ser bueno para la tuya.</div></div></section>''')
+S.append(f'''<section class="slide" style="background:#2a1d14"><div class="photo" style="height:1350px;background-image:url(img/p6-tartaleta.jpg)"></div><div class="topscrim"></div>{brand()}
+<div class="over" style="top:500px;bottom:auto"><div class="t1" style="font-size:66px">Si era bueno para mi familia, podía ser bueno para la tuya.</div></div></section>''')
 # 7
 S.append(f'''<section class="slide" style="background:#F5EEDC;color:#3E4A35">{brand("#3E4A35")}
 <div class="intro" style="top:330px;font-size:60px;color:#2a2a24">Así nació</div>
