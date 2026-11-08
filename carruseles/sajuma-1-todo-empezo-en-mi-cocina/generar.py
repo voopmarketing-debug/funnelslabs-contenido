@@ -13,8 +13,7 @@ S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{br
 <img class="hero" src="img/cheesecake-caramelo.png" style="left:70px;top:880px;width:940px">
 <div class="cap" style="top:790px;font-size:26px">DESLIZA →</div></section>''')
 # 2
-S.append(f'''<section class="slide" style="background:#3E4A35"><div class="photo" style="height:1350px;background-image:url(img/full-02-familia.jpg)"></div><div class="topscrim"></div>{brand()}
-<div class="over" style="bottom:70px"><div class="g" style="font-size:110px">Soy {NOMBRE}.</div><div class="t1" style="font-size:52px;margin-top:6px">Mamá antes que pastelera.</div></div></section>''')
+S.append(full('full-02-familia.jpg',f'<div class="g" style="font-size:150px">Soy {NOMBRE}.</div><div class="t1" style="font-size:60px;margin-top:14px">Mamá antes que pastelera.</div>'))
 # 3
 S.append(full('full-03-mesa-familiar.jpg','<div class="t1" style="font-size:62px">Quería que en casa celebráramos con postre… sin descuidar lo que más amo: su salud.</div>'))
 # 4
