@@ -10,7 +10,7 @@ S=[]
 S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
 <div class="intro" style="top:165px">Todo empezó con una pregunta…</div>
 <div class="big" style="top:235px;font-size:176px">¿se lo<br>daría a<br>mis hijos?</div>
-<img class="hero" src="img/cheesecake-caramelo.png" style="left:70px;top:880px;width:940px">
+<img class="hero" src="img/cheesecake-caramelo-fade.png" style="left:90px;top:860px;width:900px">
 <div class="cap" style="top:790px;font-size:26px">DESLIZA →</div></section>''')
 # 2
 S.append(full('full-02-familia.jpg',f'<div class="g" style="font-size:150px">Soy {NOMBRE}.</div><div class="t1" style="font-size:60px;margin-top:14px">Mamá antes que pastelera.</div>'))
