@@ -10,24 +10,25 @@ S=[]
 S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
 <div class="intro" style="top:165px">Todo empezó con una pregunta…</div>
 <div class="big" style="top:235px;font-size:176px">¿se lo<br>daría a<br>mis hijos?</div>
-<div class="shadow" style="left:350px;top:1190px;width:380px"></div>
-<img class="hero" src="img/cupcake.png" style="left:330px;top:700px;width:420px">
-<div class="cap" style="bottom:38px">DESLIZA →</div></section>''')
+<img class="hero" src="img/cheesecake-caramelo.png" style="left:70px;top:880px;width:940px">
+<div class="cap" style="top:790px;font-size:26px">DESLIZA →</div></section>''')
 # 2
-S.append(full('full-02-manos-masa.jpg',f'<div class="g" style="font-size:150px">Soy {NOMBRE}.</div><div class="t1" style="font-size:60px;margin-top:14px">Mamá antes que pastelera.</div>'))
+S.append(full('full-02-familia.jpg',f'<div class="g" style="font-size:150px">Soy {NOMBRE}.</div><div class="t1" style="font-size:60px;margin-top:14px">Mamá antes que pastelera.</div>'))
 # 3
 S.append(full('full-03-mesa-familiar.jpg','<div class="t1" style="font-size:62px">Quería que en casa celebráramos con postre… sin descuidar lo que más amo: su salud.</div>'))
 # 4
 S.append(full('full-04-ingredientes.jpg','<div class="t1" style="font-size:58px">Así que empecé a cambiar ingredientes.</div><div class="g" style="font-size:150px;margin-top:10px">uno por uno.</div>'))
 # 5
-S.append(f'''<section class="slide" style="background:#A3AE84;color:#3E4A35">{brand("#3E4A35")}
+S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
 <div class="intro" style="top:190px;font-size:50px">Y descubrí algo:</div>
 <div class="big" style="top:262px;font-size:112px;line-height:1">lo rico también<br>puede cuidarte</div>
-<div class="shadow" style="left:200px;top:1240px;width:680px;opacity:.5"></div>
-<img class="hero" src="img/torta-frutas.png" style="left:170px;top:600px;width:740px">
-</section>''')
+<div class="shadow" style="left:150px;top:1180px;width:780px;opacity:.6"></div>
+<img class="hero" src="img/cheesecake-pistacho.png" style="left:90px;top:700px;width:900px"></section>''')
 # 6
-S.append(full('full-06-horno.jpg','<div class="t1" style="font-size:64px">Si era bueno para mi familia, podía ser bueno para la tuya.</div>'))
+S.append(f'''<section class="slide" style="background:#3E4A35;color:#F5EEDC">{brand()}
+<div class="shadow" style="left:240px;top:960px;width:600px;opacity:.6"></div>
+<img class="hero" src="img/cupcake-mano.png" style="left:190px;top:150px;width:700px">
+<div class="over" style="bottom:100px"><div class="t1" style="font-size:64px">Si era bueno para mi familia, podía ser bueno para la tuya.</div></div></section>''')
 # 7
 S.append(f'''<section class="slide" style="background:#F5EEDC;color:#3E4A35">{brand("#3E4A35")}
 <div class="intro" style="top:330px;font-size:60px;color:#2a2a24">Así nació</div>
