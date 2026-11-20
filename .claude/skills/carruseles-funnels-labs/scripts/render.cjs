@@ -25,7 +25,9 @@ function loadPlaywright() {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1200, height: 1500 }, deviceScaleFactor: 1 });
   await page.goto("file://" + htmlPath, { waitUntil: "networkidle" });
+  await page.evaluate(() => Promise.all([...document.fonts].map((f) => f.load().catch(() => {}))));
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForTimeout(300);
 
   const slides = await page.$$(".slide");
   for (let i = 0; i < slides.length; i++) {
