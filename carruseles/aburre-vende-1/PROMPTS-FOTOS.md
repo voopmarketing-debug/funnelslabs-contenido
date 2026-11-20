@@ -1,11 +1,21 @@
-# Fotos para el carrusel "Storytelling que aburre / que vende"
+# Avatares del carrusel 1 (a partir de tus referencias)
 
-Cada foto se usa dos veces (en la tarjeta ABURRE y en la VENDE), así que son 4 fotos.
-Formato: vertical 2:3, la persona de cuerpo entero o hasta la cintura, mirando a cámara, con aire arriba y abajo (el texto va encima). Fotorrealista, sin texto, sin logos. Guardar como img/foto-<nombre>.jpg y volver a correr generar.py.
+Para cada uno: sube a Gemini la imagen de `ref/crops/<nombre>.png` y pega el prompt. Cada foto se usa en las dos tarjetas (ABURRE y VENDE).
+Guardar el resultado como `img/foto-<nombre>.jpg` y volver a correr `generar.py`.
 
-1. foto-finanzas.jpg — Hombre latino de unos 50 años, canoso, barba corta cuidada, lentes, traje oscuro de tres piezas, manos en los bolsillos, de pie en una oficina elegante con luz cálida, mirada seria y segura. Fotografía editorial, vertical 2:3.
-2. foto-medicos.jpg — Médico latino de unos 35 años con uniforme quirúrgico azul marino y estetoscopio, brazos cruzados, sonrisa tranquila, con un equipo médico desenfocado detrás, luz clara de clínica. Fotografía editorial, vertical 2:3.
-3. foto-ventas.jpg — Mujer latina ejecutiva de unos 30 años con saco vino, hablando por teléfono sonriendo, sentada frente a una laptop, con un café en la mano, escritorio blanco y luz natural. Fotografía editorial, vertical 2:3.
-4. foto-abogados.jpg — Abogado latino de unos 40 años con traje azul oscuro, leyendo un contrato con una pluma en la mano, concentrado, con una balanza de justicia dorada sobre la mesa, ambiente de oficina con luz lateral cálida. Fotografía editorial, vertical 2:3.
+Texto común para pegar al final de cada prompt:
+"Vertical 2:3, con espacio arriba y abajo. Fotografía editorial nítida, fotorrealista. SIN texto, SIN letras, SIN subtítulos, SIN logos. Devuelve una sola imagen, en la mayor resolución posible."
+
+## 1. foto-finanzas.jpg  (ref/crops/finanzas.png)
+Recrea la foto de referencia: misma pose (de pie, manos en los bolsillos), misma oficina elegante y misma luz. Cambia el rostro por el de una persona distinta: hombre latino de unos 45 años, pelo negro corto con algo de canas, barba de pocos días, sin lentes. Cambia los colores de la ropa: traje de tres piezas azul marino, camisa blanca y corbata verde lima. Quita todo el texto de la imagen.
+
+## 2. foto-medicos.jpg  (ref/crops/medicos.png)
+Recrea la foto de referencia: misma pose (brazos cruzados, sonriendo, estetoscopio al cuello) y el mismo ambiente de hospital con el equipo médico desenfocado detrás. Cambia el rostro por el de una persona distinta: hombre latino de unos 35 años, pelo oscuro rizado corto, sonrisa amable. Cambia los colores: uniforme verde azulado (teal) en lugar del azul marino, y el equipo de atrás con batas blancas y uniformes gris claro. Quita todo el texto.
+
+## 3. foto-ventas.jpg  (ref/crops/ventas.png)
+Recrea la foto de referencia: misma pose (sentada en un escritorio blanco, hablando por teléfono, sonriendo, con un café y la laptop abierta) y la misma luz de oficina. Cambia el rostro por el de una persona distinta: mujer latina de unos 30 años, pelo castaño largo ondulado. Cambia los colores: blazer negro carbón sobre una blusa verde lima, en lugar del blazer vino. Quita las casitas de maqueta del escritorio y todo el texto.
+
+## 4. foto-abogados.jpg  (ref/crops/abogados.png)
+Recrea la foto de referencia: misma pose (sentado, leyendo un documento con una pluma en la mano, balanza dorada de la justicia sobre la mesa) y la misma luz cálida y oscura. Cambia el rostro por el de una persona distinta: hombre latino de unos 40 años, pelo oscuro corto, barba recortada, mirada seria y concentrada. Cambia los colores: traje gris claro con camisa negra sin corbata, en lugar del traje azul marino. Quita todo el texto.
 
 Son personas inventadas por IA: no las presentes como clientes reales.
